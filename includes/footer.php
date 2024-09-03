@@ -28,15 +28,17 @@
         <a href="#" style="color: white;" class="d-block">Contact</a>
       </div>
 
-      <!-- 3rd Column: Social Media -->
+     <!-- 3rd Column: Social Media -->
       <div class="col-12 col-md-4 mb-4 mt-5 align-items-start">
         <h3 style="color: white;">VOLG ONS</h3>
-        <div class="d-flex align-items-center">
-          <a href="#" title="Facebook"><img src="./assets/icons/facebook.png" class="mr-3" width="30" alt="Facebook"></a>
-          <a href="#" title="Twitter"><img src="./assets/icons/twitter.png" class="mr-3" width="30" alt="Twitter"></a>
-          <a href="#" title="Instagram"><img src="./assets/icons/instagram.png" width="30" alt="Instagram"></a>
+        <div class="align-items-center">
+          <a href="#" title="Facebook"><img src="./assets/icons/facebook.png" width="10%" alt="Facebook"></a>
+          <a href="#" title="Twitter"><img src="./assets/icons/twitter.png"  width="10%" alt="Twitter"></a>
+          <a href="#" title="Instagram"><img src="./assets/icons/instagram.png" width="10%" alt="Instagram"></a>
         </div>
       </div>
+
+
     </div>
   </div>
 </footer>
