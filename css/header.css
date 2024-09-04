@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  font-family: "Lato", sans-serif;
+}
+
+.ms-5fix {
+  margin-left: 5%;
+}
+
+.ms-20 {
+  margin-left: 17%;
+}
+
+.navbar-nav {
+  margin-right: 6%;
+}
+.navbar-nav .nav-link {
+  color: black;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.purple-section {
+  background-color: #6e4778;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+.purple-section button,
+.purple-section select {
+  margin-left: 1%;
+}
+
+.background-color {
+  background-color: #a386b1;
+  color: #fff;
+  font-size: 15px;
+  height: 6vh;
+  width: 200px;
+}
+
+#buy_tickets {
+  padding: 7px;
+  font-size: 15px;
+  color: #6e4f7d;
+  font-weight: bold;
+}
