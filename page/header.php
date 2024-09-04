@@ -14,7 +14,7 @@
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <a class="navbar-brand" href="#">
-                <img class="ms-20" src="../assets/logo/bilthoven_logo.png" alt="AnnexBios" style="height: 100px;">
+                <img class="ms-20" src="../assets/logo/bilthoven_logp.png" alt="AnnexBios" style="height: 100px;">
             </a>
             <ul class=" navbar-nav d-flex flex-row">
                 <li class="nav-item">
