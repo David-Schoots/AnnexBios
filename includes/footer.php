@@ -1,6 +1,6 @@
-<footer style="background-color: #707070; padding: 20px 0; position: relative;">
+<footer style="padding: 20px 0; position: relative; background: #707070; overflow: hidden;">
   <div class="container">
-    <div class="row">
+    <div class="row" style="position:relative;">
       <!-- 1st Column: Logo and Text -->
       <div class="col-12 col-md-5 mb-4 d-flex flex-column align-items-start">
         <div class="row">
@@ -16,7 +16,6 @@
             <button style="background-color: white; color: black; border: none; padding: 10px 20px; margin-top: 10px;">LEES MEER</button>
           </div>
         </div>
-        
       </div>
 
       <!-- 2nd Column: Navigation Links -->
@@ -28,7 +27,7 @@
         <a href="#" style="color: white;" class="d-block">Contact</a>
       </div>
 
-     <!-- 3rd Column: Social Media -->
+      <!-- 3rd Column: Social Media -->
       <div class="col-12 col-md-4 mb-4 mt-5 align-items-start">
         <h3 style="color: white;">VOLG ONS</h3>
         <div class="align-items-center">
@@ -36,9 +35,10 @@
           <a href="#" title="Twitter"><img src="./assets/icons/twitter.png"  width="10%" alt="Twitter"></a>
           <a href="#" title="Instagram"><img src="./assets/icons/instagram.png" width="10%" alt="Instagram"></a>
         </div>
-      </div>
-
-
+      </div>    
     </div>
+
+    <!-- Filmstrip image positioned similar to the uploaded image -->
+    <img src="./assets/icons/film.png" alt="film" class="position-absolute" style="height: 125%; right: -35px; bottom: -50px; transform: rotate(-180deg);">
   </div>
 </footer>
