@@ -38,7 +38,7 @@
       </div>    
     </div>
 
-    <!-- Filmstrip image positioned similar to the uploaded image -->
+    <!-- Filmstrip image positioned -->
     <img src="./assets/icons/film.png" alt="film" class="position-absolute" style="height: 125%; right: -35px; bottom: -50px; transform: rotate(-180deg);">
   </div>
 </footer>
