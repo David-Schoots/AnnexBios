@@ -14,11 +14,11 @@
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <a class="navbar-brand" href="#">
-                <img class="ms-30" src="../assets/logo/logo_bilthoven.svg" alt="AnnexBios">
+                <img class="ms-20" src="../assets/logo/bilthoven_logo.png" alt="AnnexBios" style="height: 100px;">
             </a>
-            <ul class="navbar-nav d-flex flex-row">
+            <ul class=" navbar-nav d-flex flex-row">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">FILM AGENDA</a>
+                    <a class="nav-link" style="font: size 25px;" href="#">FILM AGENDA</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ALLE VESTIGINGEN</a>
