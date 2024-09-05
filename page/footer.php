@@ -33,6 +33,8 @@
     </div>
 
     <!-- Filmstrip image positioned -->
-    <img src="../assets/icons/film.png" alt="film" class="position-absolute" style="height: 125%; right: -35px; bottom: -50px; transform: rotate(-180deg);">
+    <div class="position-absolute" style="height: 125%; right: -35px; bottom: -50px; transform: rotate(-180deg);">
+      <img src="../assets/icons/film.png" alt="film" class="img-fluid">
+    </div>
   </div>
 </footer>
