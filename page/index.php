@@ -38,6 +38,11 @@ include_once("header.php");
   </div>
 
 
+  <!-- movie section -->
+    <div class="container my-5 text-uppercase" style="max-width: 22%; background-color: #6E4F7D;"></div>
+        <p>film agenda</p>
+    </div>
+
 
 
 

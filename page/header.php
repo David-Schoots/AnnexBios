@@ -42,6 +42,3 @@
         <button class="fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #fff; color: #6e4778; font-size: 15px; height: 4vh; width: 150px;">BESTEL TICKETS</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-
-</html>
