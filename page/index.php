@@ -13,7 +13,7 @@ include_once("header.php");
 <!-- information company -->
 
 
-<div class="container my-5" style="background-color: yellow; max-width: 86%;">
+<div class="container my-5" style="background-color: white; max-width: 86%;">
     <div class="row text-white">
       <div class="col-md-6">
         <div class="info-block mt-3">
@@ -39,10 +39,13 @@ include_once("header.php");
 
 
   <!-- movie section -->
-    <div class="container my-5 text-uppercase" style="max-width: 22%; background-color: #6E4F7D;"></div>
-        <p>film agenda</p>
+    <div class="container my-5 text-uppercase" style="background-color: white; font-size:45px">
+        <p style="color: #6E4F7D;">film agenda</p>
     </div>
 
+     <div class="container mt-5">
+       
+    </div>
 
 
 
