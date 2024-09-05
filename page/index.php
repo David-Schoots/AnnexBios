@@ -38,14 +38,72 @@ include_once("header.php");
   </div>
 
 
-  <!-- movie section -->
-    <div class="container my-5 text-uppercase" style="background-color: white; font-size:45px">
-        <p style="color: #6E4F7D;">film agenda</p>
-    </div>
+<!-- Movie section -->
+<div class="container my-5 text-uppercase" style="background-color: white; font-size: 45px; max-width: 100%;">
+    <p style="color: #6E4F7D;">film agenda</p>
+</div>
+<div class="container my-5 text-white">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <!-- Main icon button -->
+                <i id="mainButton" class="bi bi-sliders btn text-white me-3" style="font-size: 24px; cursor: pointer; border: none;"></i>
 
-     <div class="container mt-5">
-       
+                <!-- Extra buttons (will appear next to the icon) -->
+                <div id="extraButtons" class="d-none d-flex align-items-center">
+                    <!-- Radio buttons -->
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioFilms">
+                        <label class="form-check-label" for="radioFilms">
+                            Films
+                        </label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioWeek">
+                        <label class="form-check-label" for="radioWeek">
+                            Deze Week
+                        </label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioVandaag">
+                        <label class="form-check-label" for="radioVandaag">
+                            Vandaag
+                        </label>
+                    </div>
+
+                    <!-- Dropdown with radio buttons -->
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle text-uppercase" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorie
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                            <li class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="categoryAction">
+                                <label class="form-check-label" for="categoryAction">
+                                    Action
+                                </label>
+                            </li>
+                            <li class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="categoryAnother">
+                                <label class="form-check-label" for="categoryAnother">
+                                    Another Action
+                                </label>
+                            </li>
+                            <li class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="categoryElse">
+                                <label class="form-check-label" for="categoryElse">
+                                    Something Else
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+</div>
 
 
 

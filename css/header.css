@@ -8,7 +8,9 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-
+.hidden-buttons {
+  display: none !important;
+}
 
 @media (max-width: 768px) {
   .navbar-brand {
