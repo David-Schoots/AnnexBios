@@ -12,16 +12,13 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-body-tertiary">
         <div class="container-fluid">
-            <!-- Logo -->
             <a class="navbar-brand" href="#">
-                <img src="../assets/logo/bilthoven_logp.png" alt="AnnexBios" style="height: 100px;" class="img-fluid">
+                <img src="../assets/logo/bilthoven_logp.png" alt="AnnexBios" style="height: 100px; margin-left:15%" class="img-fluid">
             </a>
-            <!-- Hamburger button for mobile view -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 6%;">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link text-dark fw-bold" href="#">FILM AGENDA</a>
@@ -42,12 +39,8 @@
         <select class="text-white fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #a386b1; height: 5vh; width: 230px; font-size: 15px;">
             <option>Kies je film</option>
         </select>
-        <button class="fw-bold mt-2 mt-md-0 ms-md
-                <button class=" fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #fff; color: #6e4778; font-size: 15px; height: 4vh; width: 150px;">BESTEL TICKETS</button>
+        <button class="fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #fff; color: #6e4778; font-size: 15px; height: 4vh; width: 150px;">BESTEL TICKETS</button>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

@@ -3,3 +3,30 @@
 * {
   font-family: "Lato", sans-serif;
 }
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+  }
+
+  .purple-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .purple-section span,
+  .purple-section select,
+  .purple-section button {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .purple-section select,
+  .purple-section button {
+    width: 100%;
+  }
+}
