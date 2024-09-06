@@ -107,29 +107,33 @@ include_once("movieloop.php");
 </div>
 
 <!-- movie posters -->
-
 <div class="container my-5">
-    <div class="row row-cols-6 g-2">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
         <!-- The array is in movieloop.php -->
         <?php foreach($array as $movie): ?>
         <div class="col">
-            <div class="card" style="border: none; height: 100%;">
-                <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top" style="height: 400px;"
+            <div class="card d-flex flex-column justify-content-between h-100" style="border: none;">
+                <img src="../<?php echo $movie['photo']['photo1']; ?>" 
+                    class="card-img-top img-fluid" 
                     alt="<?php echo $movie['title']; ?>" />
                 <!-- information about movie -->
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title text-uppercase"><?php echo $movie['title']; ?></h5>
-                    <span style="color: #6E4F7D; font-size:30px"><?php echo $movie['stars']; ?></span>
+                    <span style="color: #6E4F7D; font-size: 1.5rem;"><?php echo $movie['stars']; ?></span>
                     <p class="card-text">Release: <?php echo $movie['release']; ?></p>
                     <p class="card-text"><?php echo $movie['description']; ?></p>
                     <!-- Button to buy tickets -->
-                    <a href="#" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;">Meer Info & Tickets</a>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;">Meer Info & Tickets</a>
+                    </div>
                 </div>
             </div>
         </div>
         <?php endforeach; ?>
     </div>
 </div>
+
+
 
 <?php
 include_once("footer.php");
