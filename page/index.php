@@ -12,10 +12,11 @@ include_once("movieloop.php");
 <!-- End of Introduction Section -->
 
 <!-- Information Company -->
+<!-- Information Company -->
 <div class="container my-5" style="background-color: white;">
-    <div class="row text-dark">
-        <div class="col-md-6">
-            <div class="info-block mt-3">
+    <div class="row text-dark align-items-stretch">
+        <div class="col-md-6 d-flex flex-column">
+            <div class="info-block mt-3 flex-grow-1">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.8740418078987!2d5.05273527620053!3d52.082022768564215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c665600a203a4b%3A0x50deab8a2f8797c8!2sRijksstraatweg%2042%2C%203454%20JC%20Utrecht!5e0!3m2!1snl!2snl!4v1725526494196!5m2!1snl!2snl" width="100%" height="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="px-2" style="background-color: #6E4F7D; color: white;">
                     <p class="mt-3 py-2">
@@ -28,13 +29,16 @@ include_once("movieloop.php");
             </div>
         </div>
 
-        <div class="col-md-6 mt-3">
-            <div class="theater-image">
-                <img src="../assets/maps/Hellevoetssluis.png" alt="Tivoli Theater" width="90%" height="384px">
+        <div class="col-md-6 d-flex align-items-stretch">
+            <div class="theater-image d-flex align-items-center justify-content-center" style="padding: 15px;">
+                <img src="../assets/maps/Hellevoetssluis.png" alt="Tivoli Theater" class="img-fluid" style="max-height: 100%; object-fit: cover;">
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 
 <!-- Movie Section -->
@@ -123,7 +127,7 @@ include_once("movieloop.php");
                     <p class="card-text"><?php echo $movie['description']; ?></p>
                     <!-- Button to buy tickets -->
                     <div class="mt-auto">
-                        <a href="#" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;">Meer Info & Tickets</a>
+                        <a href="#" class="btn btn-primary text-uppercase" style=" background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
                     </div>
                 </div>
             </div>
@@ -131,6 +135,11 @@ include_once("movieloop.php");
         <?php endforeach; ?>
     </div>
 </div>
+
+<!-- button to the all movie page -->
+<div class="container my-5">
+    <a href="#" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;border:none; min-width:15%">Bekijk Alle Films</a>
+</div>  
 
 
 
