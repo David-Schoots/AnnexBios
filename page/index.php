@@ -113,9 +113,8 @@ include_once("movieloop.php");
         <?php foreach($array as $movie): ?>
         <div class="col">
             <div class="card d-flex flex-column justify-content-between h-100" style="border: none;">
-                <img src="../<?php echo $movie['photo']['photo1']; ?>" 
-                    class="card-img-top img-fluid" 
-                    alt="<?php echo $movie['title']; ?>" />
+                <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
+                alt="<?php echo $movie['title']; ?>" />
                 <!-- information about movie -->
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title text-uppercase"><?php echo $movie['title']; ?></h5>
@@ -132,6 +131,7 @@ include_once("movieloop.php");
         <?php endforeach; ?>
     </div>
 </div>
+
 
 
 
