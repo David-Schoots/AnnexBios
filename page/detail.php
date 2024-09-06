@@ -44,31 +44,38 @@ include_once("header.php");
                         <li><strong>IMDb score:</strong> 8.3/10</li>
                         <li><strong>Regisseur:</strong> Juan Antonio</li>
                     </ul>
-                    <div class="row mt-4 ">
-                        <div class="col-2">
-                            <img src="../assets/acteurs/BryceDallas.jpg" alt="Bryce Dallas Howard" class="img-fluid mb-2" style="height:150px; width:100%; border-radius:0;">
+                    <div class="row mt-4 text-center">
+                        <div class="col-6 col-md-2 mb-3">
+                            <img src="../assets/acteurs/BryceDallas.jpg" alt="Bryce Dallas Howard" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
                             <p class="mb-0">Bryce Dallas Howard</p>
                         </div>
-                        <div class="col-2">
-                            <img src="../assets/acteurs/Chris_Pratt.jpg" alt="Chris Pratt" class="img-fluid mb-2" style="height:150px; width:100%; border-radius:0;">
+                        <div class="col-6 col-md-2 mb-3">
+                            <img src="../assets/acteurs/Chris_Pratt.jpg" alt="Chris Pratt" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
                             <p class="mb-0">Chris Pratt</p>
                         </div>
-                        <div class="col-2">
-                            <img src="../assets/acteurs/Rafe_Spall.jpg" alt="Rafe Spall" class="img-fluid mb-2" style="height:150px; width:100%; border-radius:0;">
+                        <div class="col-6 col-md-2 mb-3">
+                            <img src="../assets/acteurs/Rafe_Spall.jpg" alt="Rafe Spall" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
                             <p class="mb-0">Rafe Spall</p>
                         </div>
-                        <div class="col-2">
-                            <img src="../assets/acteurs/Toby_Jones.jpg" alt="Toby Jones" class="img-fluid mb-2" style="height:150px; width:100%;border-radius:0;">
+                        <div class="col-6 col-md-2 mb-3">
+                            <img src="../assets/acteurs/Toby_Jones.jpg" alt="Toby Jones" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
                             <p class="mb-0">Toby Jones</p>
                         </div>
                     </div>
-
 
                 </div>
             </div>
         </div>
     </div>
-    <p class=" text-center mb-4 p-3 fw-bold mt-3" style="background-color: #6E4F7D; color:#fff; font-size:35px; ">KOOP JE TICKETS</p>
+    <p class=" text-center mb-2 p-3 fw-bold mt-3" style="background-color: #6E4F7D; color:#fff; font-size:35px; ">KOOP JE TICKETS</p>
+
+    <div class="row mt-3 mx-0" style="border: 6px solid #6E4F7D; margin-bottom:10%;">
+        <div class=" text-center p-0">
+            <div class="ratio ratio-16x9">
+                <iframe width="800" height="450" src="https://www.youtube.com/embed/vn9mMeWcgoM" title="Jurassic World: Fallen Kingdom - Official Trailer [HD]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
 </div>
 
