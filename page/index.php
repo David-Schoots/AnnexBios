@@ -109,17 +109,20 @@ include_once("movieloop.php");
 <!-- movie posters -->
 
 <div class="container my-5">
-    <div class="row row-cols-6 g-3">
+    <div class="row row-cols-6 g-2">
+        <!-- The array is in movieloop.php -->
         <?php foreach($array as $movie): ?>
         <div class="col">
-            <div class="card" style="border: none;">
-                <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top"
+            <div class="card" style="border: none; height: 100%;">
+                <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top" style="height: 400px;"
                     alt="<?php echo $movie['title']; ?>" />
+                <!-- information about movie -->
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $movie['title']; ?></h5>
+                    <h5 class="card-title text-uppercase"><?php echo $movie['title']; ?></h5>
                     <span style="color: #6E4F7D; font-size:30px"><?php echo $movie['stars']; ?></span>
                     <p class="card-text">Release: <?php echo $movie['release']; ?></p>
                     <p class="card-text"><?php echo $movie['description']; ?></p>
+                    <!-- Button to buy tickets -->
                     <a href="#" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;">Meer Info & Tickets</a>
                 </div>
             </div>
