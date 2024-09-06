@@ -127,7 +127,7 @@ include_once("movieloop.php");
                     <p class="card-text"><?php echo $movie['description']; ?></p>
                     <!-- Button to buy tickets -->
                     <div class="mt-auto">
-                        <a href="#" class="btn btn-primary text-uppercase" style=" background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
+                        <a href="detail.php" class="btn btn-primary text-uppercase" style=" background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
                     </div>
                 </div>
             </div>
