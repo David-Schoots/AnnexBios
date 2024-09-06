@@ -1,5 +1,6 @@
 <?php
 include_once("header.php");
+include_once("movieloop.php");
 ?>
 
 <!-- Introduction Section -->
@@ -105,8 +106,27 @@ include_once("header.php");
     </div>
 </div>
 
+<!-- movie posters -->
 
-
+<div class="container my-5">
+    <div class="row row-cols-6 g-3">
+        <?php foreach($array as $movie): ?>
+        <div class="col">
+            <div class="card" style="border: none;">
+                <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top"
+                    alt="<?php echo $movie['title']; ?>" />
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $movie['title']; ?></h5>
+                    <span style="color: #6E4F7D; font-size:30px"><?php echo $movie['stars']; ?></span>
+                    <p class="card-text">Release: <?php echo $movie['release']; ?></p>
+                    <p class="card-text"><?php echo $movie['description']; ?></p>
+                    <a href="#" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;">Meer Info & Tickets</a>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 
 <?php
 include_once("footer.php");
