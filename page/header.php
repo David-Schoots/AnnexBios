@@ -7,18 +7,12 @@
     <title>AnnexBios</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/header.css">
-<<<<<<< HEAD
-
-=======
-    <link rel="stylesheet" href="../css/overide.css">
-    
->>>>>>> 33f6e64a5bdbe029aa24bce6f946f8a975cdf98f
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-body-tertiary">
+    <nav class="navbar navbar-expand-md navbar-light bg-body-tertiary fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="../assets/logo/bilthoven_logp.png" alt="AnnexBios" style="height: 100px; margin-left:15%" class="img-fluid">
@@ -42,7 +36,7 @@
         </div>
     </nav>
 
-    <div class="purple-section d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="background-color: #6e4778; padding: 20px; color: white; font-weight: bold;">
+    <div class="purple-section d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="background-color: #6e4778; padding: 20px; color: white; font-weight: bold; margin-top: 120px;">
         <span class="mb-2 mb-md-0" style="margin-left: 5%;">KOOP JE TICKETS</span>
         <select class="text-white fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #a386b1; height: 5vh; width: 230px; font-size: 15px;">
             <option>Kies je film</option>
@@ -50,7 +44,8 @@
         <button class="fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #fff; color: #6e4778; font-size: 15px; height: 4vh; width: 150px;">BESTEL TICKETS</button>
     </div>
 
-    <!-- Correcte versie van Bootstrap 5 JavaScript -->
+
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="../js/overide.js"></script>
