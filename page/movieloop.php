@@ -102,6 +102,6 @@ $array = [
     ]
 ];
 
-$encodedMovie = base64_encode(json_encode($movie));
+$encodedMovie = base64_encode(json_encode($array));
 
 ?>

@@ -1,12 +1,28 @@
 <?php
 include_once("header.php");
+include_once("movieloop.php");
+
 
 if (isset($_GET['data'])) {
     // Decode and deserialize the data
-    $encodedMovie = $_GET['data'];
+    $encodedMovie = $_GET['id'];
     $movie = json_decode(base64_decode($encodedMovie), true);
 }
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $movie = null;
+    foreach ($array as $item) {
+        if ($item['id'] == $id) {
+            $movie = $item;
+            break;
+        }
+    }
+}
+
 ?>
+
+
 
 <?php if (isset($movie)): ?>
     <div class="container mt-5">
@@ -83,6 +99,7 @@ if (isset($_GET['data'])) {
     </div>
 <?php else: ?>
     <p>Movie details not found.</p>
+    <a class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none">Back To Home</a>
 <?php endif; ?>
 
 <?php
