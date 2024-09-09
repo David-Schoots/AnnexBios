@@ -1,7 +1,5 @@
 <?php
 include_once("header.php");
-include_once("movieloop.php");
-
 ?>
 
 <!-- Introduction Section -->
@@ -12,7 +10,6 @@ include_once("movieloop.php");
 </div>
 <!-- End of Introduction Section -->
 
-<!-- Information Company -->
 <!-- Information Company -->
 <div class="container my-5" style="background-color: white;">
     <div class="row text-dark align-items-stretch">

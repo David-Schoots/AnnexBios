@@ -1,6 +1,5 @@
 <?php
 include_once("header.php");
-include_once("movieloop.php");
 
 
 if (isset($_GET['data'])) {
@@ -87,8 +86,9 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
         </div>
-        <p class=" text-center mb-2 p-3 fw-bold mt-3" style="background-color: #6E4F7D; color:#fff; font-size:35px; ">KOOP JE TICKETS</p>
-
+        <a href="buyticket.php?id=<?= $movie['id']?>" style="text-decoration: none;">
+            <p class=" text-center mb-2 p-3 fw-bold mt-3" style="background-color: #6E4F7D; color:#fff; font-size:35px; ">KOOP JE TICKETS</p>
+        </a>
         <div class="row mt-3 mx-0" style="border: 6px solid #6E4F7D; margin-bottom:10%;">
             <div class=" text-center p-0">
                 <div class="ratio ratio-16x9">
