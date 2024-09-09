@@ -1,3 +1,7 @@
+<?php 
+include_once("movieloop.php");
+?>
+
 <!doctype html>
 <html lang="en">
 
