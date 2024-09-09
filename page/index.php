@@ -1,6 +1,7 @@
 <?php
 include_once("header.php");
 include_once("movieloop.php");
+
 ?>
 
 <!-- Introduction Section -->
@@ -113,21 +114,22 @@ include_once("movieloop.php");
 <!-- movie posters -->
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
-        <!-- The array is in movieloop.php -->
         <?php foreach($array as $movie): ?>
+        <?php
+        // Encode movie data
+        $encodedMovie = base64_encode(json_encode($movie));
+        ?>
         <div class="col">
             <div class="card d-flex flex-column justify-content-between h-100" style="border: none;">
                 <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
                 alt="<?php echo $movie['title']; ?>" />
-                <!-- information about movie -->
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title text-uppercase"><?php echo $movie['title']; ?></h5>
                     <span style="color: #6E4F7D; font-size: 1.5rem;"><?php echo $movie['stars']; ?></span>
                     <p class="card-text">Release: <?php echo $movie['release']; ?></p>
                     <p class="card-text"><?php echo $movie['description']; ?></p>
-                    <!-- Button to buy tickets -->
                     <div class="mt-auto">
-                        <a href="detail.php" class="btn btn-primary text-uppercase" style=" background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
+                        <a href="detail.php?data=<?= urlencode($encodedMovie); ?>" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
                     </div>
                 </div>
             </div>
