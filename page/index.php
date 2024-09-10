@@ -41,12 +41,12 @@ include_once("header.php");
 
 <!-- Movie Section -->
 <div class="container my-5 text-uppercase" style=" font-size: 45px;">
-  <div class="row">
-    <div class="col-6 bg-white">
-    <h2 class="text-left" style="color: #6E4F7D;">film agenda</h2>
+    <div class="row">
+        <div class="col-6 bg-white">
+            <h2 class="text-left" style="color: #6E4F7D;">film agenda</h2>
+        </div>
     </div>
-  </div>
-    
+
 </div>
 
 <div class="container my-5">
@@ -111,26 +111,26 @@ include_once("header.php");
 <!-- movie posters -->
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
-        <?php foreach($array as $movie): ?>
-        <?php
-        // Encode movie data
-        $encodedMovie = base64_encode(json_encode($movie));
-        ?>
-        <div class="col">
-            <div class="card d-flex flex-column justify-content-between h-100" style="border: none;">
-                <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
-                alt="<?php echo $movie['title']; ?>" />
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-uppercase"><?php echo $movie['title']; ?></h5>
-                    <span style="color: #6E4F7D; font-size: 1.5rem;"><?php echo $movie['stars']; ?></span>
-                    <p class="card-text">Release: <?php echo $movie['release']; ?></p>
-                    <p class="card-text"><?php echo $movie['description']; ?></p>
-                    <div class="mt-auto">
-                        <a href="detail.php?id=<?= $movie['id'] ?>" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
+        <?php foreach ($array as $movie): ?>
+            <?php
+            // Encode movie data
+            $encodedMovie = base64_encode(json_encode($movie));
+            ?>
+            <div class="col">
+                <div class="card d-flex flex-column justify-content-between h-100" style="border: none;">
+                    <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
+                        alt="<?php echo $movie['title']; ?>" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-uppercase"><?php echo $movie['title']; ?></h5>
+                        <span style="color: #6E4F7D; font-size: 1.5rem;"><?php echo $movie['stars']; ?></span>
+                        <p class="card-text">Release: <?php echo $movie['release']; ?></p>
+                        <p class="card-text"><?php echo $movie['description']; ?></p>
+                        <div class="mt-auto">
+                            <a href="detail.php?id=<?= $movie['id'] ?>" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         <?php endforeach; ?>
     </div>
 </div>
@@ -138,7 +138,7 @@ include_once("header.php");
 <!-- button to the all movie page -->
 <div class="container my-5">
     <a href="#" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;border:none; min-width:15%">Bekijk Alle Films</a>
-</div>  
+</div>
 
 
 
