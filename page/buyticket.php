@@ -3,15 +3,15 @@
 ?>
 
 <div class="container my-5 text-uppercase" style="font-size: 45px;">
-  <div class="row">
-    <div class="col-6 bg-white">
-      <h2 class="text-left" style="color: #6E4F7D;">TICKETS BESTELLEN</h2>
+    <div class="row">
+        <div class="col-6 bg-white">
+            <h2 class="text-left" style="color: #6E4F7D;">TICKETS BESTELLEN</h2>
+        </div>
     </div>
-  </div>
 </div>
 
-<div class="container my-5 bg-light">
-    <!-- Movie Selection and Dropdowns -->
+<!-- Movie Selection and Dropdowns -->
+<div class="container my-5">
     <div class="row mb-4">
         <div class="col-12 d-flex flex-column flex-sm-row gap-3">
             <p class="p-1 mb-0 bg-white"><?= htmlspecialchars($movie['title']) ?></p>
@@ -37,11 +37,15 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="container my-5 bg-light">
 
     <!-- Step 1: Choose Ticket -->
     <div class="container my-5" style="color: #6E4F7D; background-color: white;">
         <div class="row">
-            <h4 class="p-4" style="font-size: 30px;">STAP 1: Kies je Ticket</h4>
+            <h4 class="p-4" style="font-size: 30px; color: #6E4F7D; ">STAP 1: Kies je Ticket</h4>
         </div>
         <table class="table table-hover bg-light">
             <thead>
@@ -118,7 +122,7 @@
     <!-- Step 2: Choose Seat -->
     <div class="container my-5">
         <div class="row">
-            <h4 class="p-4" style="font-size: 30px;">STAP 2: KIES JE STOEL</h4>
+            <h4 class="p-4" style="font-size: 30px; color: #6E4F7D;">STAP 2: KIES JE STOEL</h4>
         </div>
         <!-- Placeholder for reservation system -->
     </div>
@@ -126,7 +130,7 @@
     <!-- Step 3: Review Order -->
     <div class="container my-5">
         <div class="row">
-            <h4 class="p-4" style="font-size: 30px;">STAP 3: CONTROLEER JE BESTELLING</h4>
+            <h4 class="p-4" style="font-size: 30px; color: #6E4F7D;">STAP 3: CONTROLEER JE BESTELLING</h4>
         </div>
         <div class="card mb-3" style="border: 2px solid #6E4F7D;">
             <div class="row g-0">
@@ -158,7 +162,7 @@
     <!-- Step 4: Fill in Your Details -->
     <div class="container my-5">
         <div class="row">
-            <h4 class="p-4" style="font-size: 30px;">STAP 4: VUL JE GEGEVENS IN</h4>
+            <h4 class="p-4" style="font-size: 30px; color: #6E4F7D;">STAP 4: VUL JE GEGEVENS IN</h4>
         </div>
         <form>
             <div class="row mb-3">
@@ -181,7 +185,7 @@
     <!-- Step 5: Choose Payment Method -->
     <div class="container my-5">
         <div class="row">
-            <h4 class="p-4" style="font-size: 30px;">STAP 5: KIES JE BETAALWIJZE</h4>
+            <h4 class="p-4" style="font-size: 30px; color: #6E4F7D;">STAP 5: KIES JE BETAALWIJZE</h4>
         </div>
         <div class="d-flex flex-column flex-sm-row gap-3">
             <div class="form-check">
@@ -201,9 +205,27 @@
                 <label class="form-check-label" for="flexCheckDefault3">
                     <img src="../assets/icons/iDEAL-logo.png" width="50" height="50" alt="">
                 </label>
-            </div>
+              </div>
+
+              <div class="form-check">
+              
+              </div>
         </div>
     </div>
+
+    <div class="container my-5">
+          <input id="checkbox" type="checkbox"/>
+          <label for="checkbox" class="mb-3"> Ja, ik ga akkoord met de <a href="#">algemene voorwaarden</a>.</label>       
+    </div>
+
+</div><!-- end of container -->
+
+  <div class="container">
+    <div class="col-12">
+    <a href="buyticket.php?id=<?= $movie['id']?>" style="text-decoration: none;">
+      <p class=" text-center mb-2 p-3 fw-bold mt-3" style="background-color: #6E4F7D; color:#fff; font-size:35px; ">AFREKENEN</p>
+    </a>
+  </div>
 </div>
 
 
