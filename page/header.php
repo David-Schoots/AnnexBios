@@ -1,5 +1,24 @@
 <?php
 include_once("movieloop.php");
+
+/* checks if the id from the film is in de movieloop.php */
+if (isset($_GET['data'])) {
+    // Decode and deserialize the data
+    $encodedMovie = $_GET['id'];
+    $movie = json_decode(base64_decode($encodedMovie), true);
+}
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $movie = null;
+    foreach ($array as $item) {
+        if ($item['id'] == $id) {
+            $movie = $item;
+            break;
+        }
+    }
+}
+
 ?>
 
 <!doctype html>
