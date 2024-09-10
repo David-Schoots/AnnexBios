@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once("movieloop.php");
 
 /* checks if the id from the film is in the movieloop.php */
@@ -37,36 +37,39 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-body-tertiary fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../page/index.php">
-                <img src="../assets/logo/bilthoven_logp.png" alt="AnnexBios" style="height: 100px; margin-left:15%" class="img-fluid">
-            </a>
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 6%;">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark fw-bold" href="overview.php">FILM AGENDA</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark fw-bold" href="#">ALLE VESTIGINGEN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark fw-bold" href="#">CONTACT</a>
-                    </li>
-                </ul>
+    <div class=" fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../page/index.php">
+                    <img src="../assets/logo/bilthoven_logp.png" alt="AnnexBios" style="height: 100px; margin-left:15%" class="img-fluid">
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 6%;">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-bold" href="#">FILM AGENDA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-bold" href="#">ALLE VESTIGINGEN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-bold" href="#">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="purple-section d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="background-color: #6e4778; padding: 20px; color: white; font-weight: bold; margin-top: 120px;">
-        <span class="mb-2 mb-md-0" style="margin-left: 5%;">KOOP JE TICKETS</span>
-        <select class="text-white fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #a386b1; height: 5vh; width: 230px; font-size: 15px;">
-            <option>Kies je film</option>
-        </select>
-        <button class="fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #fff; color: #6e4778; font-size: 15px; height: 4vh; width: 150px;">BESTEL TICKETS</button>
+
+        <div class="purple-section d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="background-color: #6e4778; padding: 20px; color: white; font-weight: bold;">
+            <span class="mb-2 mb-md-0" style="margin-left: 5%;">KOOP JE TICKETS</span>
+            <select class="text-white fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #a386b1; height: 5vh; width: 230px; font-size: 15px;">
+                <option>Kies je film</option>
+            </select>
+            <button class="fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #fff; color: #6e4778; font-size: 15px; height: 4vh; width: 150px;">BESTEL TICKETS</button>
+        </div>
     </div>
 
 
