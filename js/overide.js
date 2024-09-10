@@ -6,3 +6,4 @@ document.addEventListener("DOMContentLoaded", function () {
     extraButtons.classList.toggle("d-none");
   });
 });
+
