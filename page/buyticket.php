@@ -166,18 +166,20 @@
         </div>
         <form>
             <div class="row mb-3">
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <input type="text" class="form-control" style="border: 2px solid #6E4F7D;" id="voornaam" placeholder="Voornaam">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <input type="text" class="form-control" style="border: 2px solid #6E4F7D;" id="achternaam" placeholder="Achternaam">
                 </div>
             </div>
-            <div class="mb-3">
-                <input type="email" class="form-control" style="border: 2px solid #6E4F7D;" id="email1" placeholder="E-mail Adres 1">
-            </div>
-            <div class="mb-3">
-                <input type="email" class="form-control" style="border: 2px solid #6E4F7D;" id="email2" placeholder="E-mail Adres 2">
+            <div class="row mb-3">
+                <div class="mb-3 col-md-3">
+                    <input type="email" class="form-control" style="border: 2px solid #6E4F7D;" id="email1" placeholder="E-mail Adres 1">
+                </div>
+                <div class="mb-3 col-md-3">
+                    <input type="email" class="form-control" style="border: 2px solid #6E4F7D;" id="email2" placeholder="Bevestig E-mail">
+                </div>
             </div>
         </form>
     </div>
