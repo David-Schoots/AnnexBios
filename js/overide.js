@@ -7,3 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".dropdown-item").forEach(function (item) {
+    item.addEventListener("click", function (event) {
+      event.preventDefault();
+      let selectedValue = event.target.getAttribute("data-value");
+      let dropdownButton = event.target
+        .closest(".dropdown")
+        .querySelector(".btn");
+      dropdownButton.textContent = selectedValue;
+    });
+  });
+});
