@@ -1,28 +1,12 @@
 <?php
 
-/* $api_url = 'https://annexbios-server.onrender.com/api';
-
-// Read JSON file
-$json_data = file_get_contents($api_url);
-
-// Decode JSON data into PHP array
-$response_data = json_decode($json_data);
-
-// All movie data exists in 'movie' object
-$movie_data = $response_data->$movie;
-
-$movie_data = array_slice($movie_data,0, 9);
-
-print_r($movie_data);
- */
-
 // Initializing curl
 $curl = curl_init();
   
 // Sending GET request to reqres.in
 // server to get JSON data
 curl_setopt($curl, CURLOPT_URL, 
-    "https://annexbios-server.onrender.com/api");
+    "https://annexbios-server.onrender.com/api/movies");
   
 // Telling curl to store JSON
 // data in a variable instead
@@ -46,6 +30,11 @@ if($e = curl_error($curl)) {
     // Outputting JSON data in
     // Decoded form
     var_dump($decodedData);
+
+   /*  foreach($decodedData as $movies)
+    {
+        echo($movies["in)
+    } */
 }
 
 // Closing curl
