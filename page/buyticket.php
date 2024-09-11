@@ -58,7 +58,7 @@ include_once("header.php");
             <tbody>
                 <tr>
                     <th scope="row">Normaal</th>
-                    <td class="text-end">€10,00</td>
+                    <td class="text-end">€9,00</td>
                 <td class="text-end">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -127,7 +127,7 @@ include_once("header.php");
                                 // Hier kun je een validatie doen voor de vouchercode
                                 if ($vouchercode == 'charmander ') {
                                     echo 'Vouchercode is geldig!';
-                                    
+
                                 } else {
                                     echo 'Ongeldige vouchercode!';
                                 }

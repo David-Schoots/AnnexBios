@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const ticketPrices = {
-    dropdownMenuButton1: 10, // Price for Volwassenen
+    dropdownMenuButton1: 9, // Price for Volwassenen
     dropdownMenuButton2: 5, // Price for Kind t/m 11 jaar
     dropdownMenuButton3: 7, // Price for 65 +
   };
