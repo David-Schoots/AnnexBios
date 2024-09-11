@@ -1,5 +1,5 @@
-<?php 
-  include_once("header.php");
+<?php
+include_once("header.php");
 ?>
 
 <div class="container my-5 text-uppercase" style="font-size: 45px;">
@@ -228,33 +228,30 @@
                 <label class="form-check-label" for="flexCheckDefault3">
                     <img src="../assets/icons/iDEAL-logo.png" width="50" height="50" alt="">
                 </label>
-              </div>
+            </div>
 
-              <div class="form-check">
-              
-              </div>
+            <div class="form-check">
+
+            </div>
         </div>
     </div>
 
     <div class="container my-5">
-          <input id="checkbox" type="checkbox"/>
-          <label for="checkbox" class="mb-3"> Ja, ik ga akkoord met de <a href="#">algemene voorwaarden</a>.</label>       
+        <input id="checkbox" type="checkbox" />
+        <label for="checkbox" class="mb-3"> Ja, ik ga akkoord met de <a href="#">algemene voorwaarden</a>.</label>
     </div>
 
 </div><!-- end of container -->
 
-  <div class="container">
+<div class="container">
     <div class="col-12">
-    <a href="buyticket.php?id=<?= $movie['id']?>" style="text-decoration: none;">
-      <p class=" text-center mb-2 p-3 fw-bold mt-3" style="background-color: #6E4F7D; color:#fff; font-size:35px; ">AFREKENEN</p>
-    </a>
-  </div>
+        <a href="buyticket.php?id=<?= $movie['id'] ?>" style="text-decoration: none;">
+            <p class=" text-center mb-2 p-3 fw-bold mt-3" style=" background-color: #6E4F7D; color:#fff; font-size:35px; ">AFREKENEN</p>
+        </a>
+    </div>
 </div>
 
 
-
-<?php 
-include_once("footer.php"); 
-
+<?php
+include_once("footer.php");
 ?>
-
