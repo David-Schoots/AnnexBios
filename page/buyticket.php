@@ -58,56 +58,56 @@ include_once("header.php");
             <tbody>
                 <tr>
                     <th scope="row">Normaal</th>
-                    <td class="text-end">€9,00</td>
-                    <td class="text-end">
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                0
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#" data-value="1">1</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="2">2</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="3">3</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="4">4</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="5">5</a></li>
-                            </ul>
-                        </div>
+                    <td class="text-end">€10,00</td>
+                <td class="text-end">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            0
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#" data-value="1">1</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="2">2</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="3">3</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="4">4</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="5">5</a></li>
+                        </ul>
+                    </div>
+                </td>
+                </tr>
+                <tr>
+                <th scope="row">Kind t/m 11 jaar</th>
+                <td class="text-end">€5,00</td>
+                <td class="text-end">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            0
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item" href="#" data-value="1">1</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="2">2</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="3">3</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="4">4</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="5">5</a></li>
+                        </ul>
+                    </div>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Kind t/m 11 jaar</th>
-                    <td class="text-end">€5,00</td>
-                    <td class="text-end">
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                0
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <li><a class="dropdown-item" href="#" data-value="1">1</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="2">2</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="3">3</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="4">4</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="5">5</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">65 +</th>
-                    <td class="text-end">€7,00</td>
-                    <td class="text-end">
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                                0
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                <li><a class="dropdown-item" href="#" data-value="1">1</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="2">2</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="3">3</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="4">4</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="5">5</a></li>
-                            </ul>
-                        </div>
+                <th scope="row">65 +</th>
+                <td class="text-end">€7,00</td>
+                <td class="text-end">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                            0
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                            <li><a class="dropdown-item" href="#" data-value="1">1</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="2">2</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="3">3</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="4">4</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="5">5</a></li>
+                        </ul>
+                    </div>
                     </td>
                 </tr>
                 <tr>
@@ -127,6 +127,7 @@ include_once("header.php");
                                 // Hier kun je een validatie doen voor de vouchercode
                                 if ($vouchercode == 'charmander ') {
                                     echo 'Vouchercode is geldig!';
+                                    
                                 } else {
                                     echo 'Ongeldige vouchercode!';
                                 }
@@ -171,8 +172,8 @@ include_once("header.php");
                             <p class="card-text mt-2 mb-0">Bioscoop: Hellevoetsluis (Zaal 3)</p>
                             <p class="card-text mb-0">Wanneer: </p>
                             <p class="card-text mb-0">Stoelen: </p>
-                            <p class="card-text mb-0">Tickets: </p>
-                            <p class="card-text mb-0">Totaal: </p>
+                            <p class="card-text mb-0">Tickets: <span id="ticketCount">0</span></p>
+                            <p class="card-text mb-0">Totaal: <span id="totalAmount">€0.00</span></p>
                         </div>
                     </div>
                 </div>
