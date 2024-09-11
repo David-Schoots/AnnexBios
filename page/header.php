@@ -52,7 +52,7 @@ if (isset($_GET['id'])) {
                 <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 6%;">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark fw-bold" href="#">FILM AGENDA</a>
+                            <a class="nav-link text-dark fw-bold" href="overview.php">FILM AGENDA</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark fw-bold" href="#">ALLE VESTIGINGEN</a>

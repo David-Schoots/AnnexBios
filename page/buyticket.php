@@ -111,9 +111,30 @@
                     </td>
                 </tr>
                 <tr>
+                <form method="POST" action="">
                     <th scope="row">VOUCHERCODE</th>
-                    <td><input type="text" class="form-control" placeholder="code"></td>
-                    <td><button type="button" class="btn text-white form-control" style="background-color: #6E4F7D;">TOEVOEGEN</button></td>
+                    <td>
+                        <input type="text" id="vouchercode" name="vouchercode" class="form-control" placeholder="code">
+                    </td>
+                    <td>
+                        <button type="submit" class="btn text-white form-control" style="background-color: #6E4F7D;">TOEVOEGEN</button>
+                    </td>
+                </form>
+                    <?php 
+                        if (isset($_POST['vouchercode'])) {
+                            $vouchercode = $_POST['vouchercode'];
+                            if (!empty($vouchercode)) {
+                                // Hier kun je een validatie doen voor de vouchercode
+                                if ($vouchercode == 'charmander ') {
+                                    echo 'Vouchercode is geldig!';
+                                } else {
+                                    echo 'Ongeldige vouchercode!';
+                                }
+                            } else {
+                                echo 'Voer een vouchercode in!';
+                            }
+                        }
+                    ?>
                 </tr>
             </tbody>
         </table>
