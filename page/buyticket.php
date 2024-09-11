@@ -193,7 +193,7 @@ include_once("header.php");
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
                 <label class="form-check-label" for="flexCheckDefault1">
-                    <img src="../assets/icons/biosbon.png" width="50" height="50" alt="">
+                    <img src="../assets/icons/biosbon.png" width="50" height="50" alt="biosbon">
                 </label>
             </div>
             <div class="form-check">
