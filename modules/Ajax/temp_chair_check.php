@@ -1,13 +1,9 @@
 <?php
     session_start();
 ?>   
-<div id="temp_insert_chair">
-    <?php 
-        include "../core/db_connect.php";
-    ?>
-</div>
 
 <?php
+    include "../core/db_connect.php";
 
     $total_rows = 10;
     $total_chairs = 111;
@@ -62,9 +58,8 @@
             $sqli_prepare->close();
 
             
-        }
-                 
-    
+        } 
+        
         for($i = 1; $i <= $total_rows; $i++) {
         
         

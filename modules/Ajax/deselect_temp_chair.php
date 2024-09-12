@@ -1,13 +1,10 @@
 <?php
     session_start();
 ?>   
-<div id="temp_insert_chair">
-    <?php 
-        include "../core/db_connect.php";
-    ?>
-</div>
 
 <?php
+
+include "../core/db_connect.php";
 
     $chair_num = $_GET['chair_num'];
     $row_chair = $_GET['chair_row'];
@@ -39,7 +36,8 @@
                 $since_start = $start_date[$id]->diff(new DateTime($current_time));
 
                 if(strval($chair_number) == $_GET['chair_num'] && strval($chair_row) == $_GET['chair_row']) {
-                    $delete_chair[] = $id;  
+                    $delete_chair[] = $id; 
+                    unset($_SESSION['temp_reserved_chair'][$id]);
                 }
 
                     if($since_start->h >= 1 || $since_start->i >= 2){
@@ -69,9 +67,8 @@
             $sqli_prepare->close();
 
             
-        }
-                 
-    
+        } 
+        
         for($i = 1; $i <= $total_rows; $i++) {
         
         

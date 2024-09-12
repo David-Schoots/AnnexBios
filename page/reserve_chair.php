@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <script src="reserve_chair.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="cursor.css">
 
@@ -23,15 +24,10 @@
 
     
     
-<div id="chairs" class="container">
-    
-        <div id="temp_insert_chair">
-            <?php 
-                include "../modules/core/db_connect.php";
-            ?>
-        </div>
+<div id="chairs" class="container m-0 p-0 vh-100 vw-100">
 
 <?php
+     include "../modules/core/db_connect.php";
 
     $total_rows = 10;
     $total_chairs = 111;
@@ -87,8 +83,7 @@
 
             
         }
-                 
-    
+
     for($i = 1; $i <= $total_rows; $i++) {
         
         
@@ -185,52 +180,6 @@
         
         
     </div>
-<div id='test'></div>
-    
-    <script>
-       
-     function add_chair(chair_number, chair_row) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-    
-        document.getElementById("chairs").innerHTML = this.responseText;
-        console.log(this.responseText);
-    }  
-    
-    };
-        xhttp.open("GET", "../modules/Ajax/temp_insert_chair.php?chair_num="+chair_number+"&chair_row="+chair_row, true);
-        xhttp.send();
-    }
-
-    function remove_chair(chair_number, chair_row) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-    
-        document.getElementById("chairs").innerHTML = this.responseText;
-        console.log(this.responseText);
-    }  
-    
-    };
-        xhttp.open("GET", "../modules/Ajax/deselect_temp_chair.php?chair_num="+chair_number+"&chair_row="+chair_row, true);
-        xhttp.send();
-    }
-
-    setInterval(function () {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-    
-        document.getElementById("chairs").innerHTML = this.responseText;
-    }  
-    
-  };
-  xhttp.open("GET", "../modules/Ajax/temp_chair_check.php", true);
-  xhttp.send();
-    }, 60000);
-    
-    </script>  
-    
+   
 </body>
 </html>
