@@ -1,26 +1,27 @@
 <?php
 include_once("movieloop.php");
 
+
 /* checks if the id from the film is in the movieloop.php */
-if (isset($_GET['data'])) {
+/* if (isset($_GET['data'])) {
     // Decode and deserialize the data
     $encodedMovie = $_GET['id'];
     $movie = json_decode(base64_decode($encodedMovie), true);
-}
+} */
 
 /* checks if the button with id [id] is pressed  */
 
-if (isset($_GET['id'])) {
+/* if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $movie = null;
-    foreach ($array as $item) {
+    foreach ($getMovies as $item) {
         if ($item['id'] == $id) {
             $movie = $item;
             break;
         }
     }
 }
-
+ */
 ?>
 
 <!doctype html>
@@ -85,7 +86,7 @@ if (isset($_GET['id'])) {
     <script src="../js/datepicker.js"></script>
     <script src="../js/timepicker.js"></script>
     <!-- script for the timepicker.js -->
-    <<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha512-ux1VHIyaPxawuad8d1wr1i9l4mTwukRq5B3s8G3nEmdENnKF5wKfOV6MEUH0k/rNT4mFr/yL+ozoDiwhUQekTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha512-ux1VHIyaPxawuad8d1wr1i9l4mTwukRq5B3s8G3nEmdENnKF5wKfOV6MEUH0k/rNT4mFr/yL+ozoDiwhUQekTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
     
