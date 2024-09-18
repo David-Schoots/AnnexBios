@@ -1,5 +1,7 @@
 <?php
 include_once("header.php");
+include_once("../api/api-call.php");
+$data = getApiMovies();
 ?>
 
 <!-- Introduction Section -->
@@ -35,10 +37,6 @@ include_once("header.php");
     </div>
 </div>
 
-
-
-
-
 <!-- Movie Section -->
 <div class="container my-5 text-uppercase" style=" font-size: 45px;">
     <div class="row">
@@ -46,7 +44,6 @@ include_once("header.php");
             <h2 class="text-left" style="color: #6E4F7D;">film agenda</h2>
         </div>
     </div>
-
 </div>
 
 <div class="container my-5">
@@ -117,22 +114,24 @@ include_once("header.php");
 <!-- movie posters -->
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
-        <?php foreach ($array as $movie): ?>
-            <?php
-            // Encode movie data
-            $encodedMovie = base64_encode(json_encode($movie));
-            ?>
+        
+        <?php 
+        /* show only the first 12 movies on screen */
+        $data = array_slice($data['data'], 0, 12);
+        
+        /* loop through each of the 12 movies */
+        foreach ($data as $movie): ?>
             <div class="col">
                 <div class="card d-flex flex-column justify-content-between h-100" style="border: none;">
-                    <img src="../<?php echo $movie['photo']['photo1']; ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
-                        alt="<?php echo $movie['title']; ?>" />
+                    <img src="<?php echo htmlspecialchars($movie['image']); ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
+                         alt="<?php echo htmlspecialchars($movie['title']); ?>" />
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-uppercase"><?php echo $movie['title']; ?></h5>
-                        <span style="color: #6E4F7D; font-size: 1.5rem;"><?php echo $movie['stars']; ?></span>
-                        <p class="card-text">Release: <?php echo $movie['release']; ?></p>
-                        <p class="card-text"><?php echo $movie['description']; ?></p>
+                        <h5 class="card-title text-uppercase"><?php echo htmlspecialchars($movie['title']); ?></h5>
+                        <span style="color: #6E4F7D; font-size: 1.5rem;"><?php echo htmlspecialchars($movie['rating']); ?> Stars</span>
+                        <p class="card-text">Release: <?php echo htmlspecialchars($movie['release_date']); ?></p>
+                        <p class="card-text"><?php echo htmlspecialchars($movie['description']); ?></p>
                         <div class="mt-auto">
-                            <a href="detail.php?id=<?= $movie['id'] ?>" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
+                            <a href="detail.php?id=<?= htmlspecialchars($movie['api_id']); ?>" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
                         </div>
                     </div>
                 </div>
@@ -141,9 +140,10 @@ include_once("header.php");
     </div>
 </div>
 
+
 <!-- button to the all movie page -->
 <div class="container my-5">
-    <a href="#" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;border:none; min-width:15%">Bekijk Alle Films</a>
+    <a href="overview.php" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D;border:none; min-width:15%">Bekijk Alle Films</a>
 </div>
 
 

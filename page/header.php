@@ -1,5 +1,10 @@
 <?php
-    include_once("movieloop.php");
+include_once("movieloop.php");
+
+    session_start();
+    if(!isset($_SESSION['temp_reserved_chair'])) {
+        $_SESSION['temp_reserved_chair'] = [];
+    }
 
     session_start();
     if(!isset($_SESSION['temp_reserved_chair'])) {
@@ -7,25 +12,25 @@
     }
 
 /* checks if the id from the film is in the movieloop.php */
-if (isset($_GET['data'])) {
+/* if (isset($_GET['data'])) {
     // Decode and deserialize the data
     $encodedMovie = $_GET['id'];
     $movie = json_decode(base64_decode($encodedMovie), true);
-}
+} */
 
 /* checks if the button with id [id] is pressed  */
 
-if (isset($_GET['id'])) {
+/* if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $movie = null;
-    foreach ($array as $item) {
+    foreach ($getMovies as $item) {
         if ($item['id'] == $id) {
             $movie = $item;
             break;
         }
     }
 }
-
+ */
 ?>
 
 <!doctype html>
@@ -110,3 +115,23 @@ if (isset($_GET['id'])) {
                 TICKETS</button>
         </div>
     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <!-- jquery js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="../js/overide.js"></script>
+    <!-- script for the datepicker js -->
+    <script src="../js/datepicker.js"></script>
+    <script src="../js/timepicker.js"></script>
+    <!-- script for the timepicker.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha512-ux1VHIyaPxawuad8d1wr1i9l4mTwukRq5B3s8G3nEmdENnKF5wKfOV6MEUH0k/rNT4mFr/yL+ozoDiwhUQekTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    
+
+</body>
+
+</html>

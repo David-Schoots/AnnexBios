@@ -1,5 +1,5 @@
 <?php
-$array = [
+/* $array = [
     [
         "id" => 1,
         "title" => "JURASSIC WORLD: FALLEN KINGDOM",
@@ -100,8 +100,8 @@ $array = [
             "photo1" => "assets/films/pieter-konijn.jpg"
         ]
     ]
-];
+]; */
 
-$encodedMovie = base64_encode(json_encode($array));
-
+/* $encodedMovie = base64_encode(json_encode($array));
+ */
 ?>
