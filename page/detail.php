@@ -3,17 +3,6 @@ include_once("../api/api-call.php");
 $id = htmlspecialchars($_GET['id']);
 $data = getApiMovie($id);
 
-/* $checkIfExist = [];
-foreach($data as $movie) {
-    array_push($checkIfExist, $movie['api_id']);
-}
-if(!in_array($_GET['api_id'], $checkIfExist)) {
-    header("location:index.php");
-    exit;
-} 
- */
-
-
 include_once("header.php");
 
 ?>
@@ -58,26 +47,26 @@ include_once("header.php");
                                 <li><strong>Genre:</strong></li>
                                 <li><strong>Filmlengte:</strong><?= $movie['length']?></li>
                                 <li><strong>Land:</strong> USA</li>
-                                <li><strong>IMDb score:</strong> 8.3/10</li>
-                                <li><strong>Regisseur:</strong> Juan Antonio</li>
+                                <li><strong>IMDb score:</strong> <?=$movie['rating']?>/10 </li>
+                                <li><strong>Regisseur:</strong><?php 
+                                    if (!empty($movie['directors'])) {
+                                        echo htmlspecialchars($movie['directors'][0]['name']);
+                                    } else {
+                                        echo 'Niet beschikbaar';
+                                    }
+                                ?>
+                                </li>
                             </ul>
                             <div class="row mt-4 text-center">
+                                <?php 
+                                $i = 0;
+                                foreach($movie["actors"] as $actor): ?>
                                 <div class="col-6 col-md-2 mb-3">
-                                    <img src="<?= $movie["actors"]['image']?>" alt="Bryce Dallas Howard" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
-                                    <p class="mb-0"><?= $movie["actors"]['name']?></p>
+                                    <img src="<?= $actor['image'] === null ? 'https://placehold.co/400x600' : $actor['image'] ?>" alt="Bryce Dallas Howard" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
+                                    <p class="mb-0"><?= $actor['name']?></p>
                                 </div>
-                                <div class="col-6 col-md-2 mb-3">
-                                    <img src="<?= $movie["actors"]['image']?>" alt="Chris Pratt" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
-                                    <p class="mb-0"><?= $movie["actors"]['name']?></p>
-                                </div>
-                                <div class="col-6 col-md-2 mb-3">
-                                    <img src="<?= $movie["actors"]['image']?>" alt="Rafe Spall" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
-                                    <p class="mb-0"><?= $movie["actors"]['name']?></p>
-                                </div>
-                                <div class="col-6 col-md-2 mb-3">
-                                    <img src=".<?= $movie["actors"]['image']?> alt="Toby Jones" class="img-fluid mb-2" style="object-fit: contain; height:150px; width:100%; border-radius:0;">
-                                    <p class="mb-0"><?= $movie["actors"]['name']?></p>
-                                </div>
+                                <?php if(++$i > 5) break; ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -89,7 +78,7 @@ include_once("header.php");
             <div class="row mt-3 mx-0" style="border: 6px solid #6E4F7D; margin-bottom:10%;">
                 <div class=" text-center p-0">
                     <div class="ratio ratio-16x9">
-                        <iframe width="800" height="450" src="<?php echo $movie['trailer_link']?> title="Jurassic World: Fallen Kingdom - Official Trailer [HD]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="800" height="450" src="<?php echo $movie['embedded_trailer_link']?>" title="<?php $movie['title']?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
