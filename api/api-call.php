@@ -1,43 +1,70 @@
 <?php
+$bearerToken = '91e72f6956518f0337d9eaf07add3f1ec1737a2bdf0c64ff782bf50558375947';
 
-// Initializing curl
-$curl = curl_init();
-  
-// Sending GET request to reqres.in
-// server to get JSON data
-curl_setopt($curl, CURLOPT_URL, 
-    "https://annexbios-server.onrender.com/api/movies");
-  
-// Telling curl to store JSON
-// data in a variable instead
-// of dumping on screen
-curl_setopt($curl, 
-    CURLOPT_RETURNTRANSFER, true);
-  
-// Executing curl
-$response = curl_exec($curl);
+function getApiMovies(){
+    global $bearerToken;
 
-// Checking if any error occurs 
-// during request or not
-if($e = curl_error($curl)) {
-    echo $e;
-} else {
-    
-    // Decoding JSON data
-    $decodedData = 
-        json_decode($response, true); 
-        
-    // Outputting JSON data in
-    // Decoded form
-    var_dump($decodedData);
+    // Initialize cURL session
+    $ch = curl_init();
 
-   /*  foreach($decodedData as $movies)
-    {
-        echo($movies["in)
-    } */
+    // API endpoint URL
+    $url = 'https://annexbios.nickvz.nl/api/v1/movieData';
+
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $bearerToken,
+        'Content-Type: application/json'
+    ]);
+
+    // Execute cURL request
+    $response = curl_exec($ch);
+
+    // Check for errors
+    if (curl_errno($ch)) {
+        echo 'Error: ' . curl_error($ch);
+    } else {
+        // Process the response
+        $data = json_decode($response, true);
+        return $data;
+    }
+
+    // Close cURL session
+    curl_close($ch);
 }
 
-// Closing curl
-curl_close($curl);
+function getApiMovie($id){
+    global $bearerToken;
+
+    // Initialize cURL session
+    $ch = curl_init();
+
+    // API endpoint URL
+    $url = 'https://annexbios.nickvz.nl/api/v1/movieData/' . $id;
+
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $bearerToken,
+        'Content-Type: application/json'
+    ]);
+
+    // Execute cURL request
+    $response = curl_exec($ch);
+
+    // Check for errors
+    if (curl_errno($ch)) {
+        echo 'Error: ' . curl_error($ch);
+    } else {
+        // Process the response
+        $data = json_decode($response, true);
+        return $data;
+    }
+
+    // Close cURL session
+    curl_close($ch);
+}
 
 ?>
