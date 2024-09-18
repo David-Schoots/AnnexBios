@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "annex_bios";
+$dbname = "thomas_annexbios";
 
 $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 $con->set_charset('utf8'); // Fixed question mark for characters like "ë"

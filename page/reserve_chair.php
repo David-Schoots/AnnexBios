@@ -98,7 +98,7 @@
             <?php
                 if($i == 10){
                     if(!isset($chair_reserved[$i][$current_chair])) { ?>
-                        <img src="../assets/chairs/non_reserved_wheelchair.png" alt="niet gereserveerd" class="col mt-3 p-1 pointer" onclick="add_chair(<?= $current_chair .','. $i?>)" width="15" height="75">
+                        <img src="../assets/chairs/non_reserved_wheelchair.png" alt="niet gereserveerd" class="col mt-3 p-1 pointer" onclick="add_chair(<?= $current_chair .','. $i ?>, this)" width="15" height="75">
                 <?php } else if(isset($chair_reserved[$i][$current_chair]) && $chair_reserved[$i][$current_chair] == true) {
                         
                     if(in_array($click_check, $selected_chair)) { ?>
@@ -109,7 +109,7 @@
                  }
                 } else {
                     if(!isset($chair_reserved[$i][$current_chair])) { ?>
-                        <img src="../assets/chairs/non_reserved_chair.png" alt="niet gereserveerd" class="col mt-3 p-1" onclick="add_chair(<?= $current_chair .','. $i?>)" width="15" height="75">
+                        <img src="../assets/chairs/non_reserved_chair.png" alt="niet gereserveerd" class="col mt-3 p-1" onclick="add_chair(<?= $current_chair .','. $i ?>, this)" width="15" height="75">
                 <?php } else if(isset($chair_reserved[$i][$current_chair]) && $chair_reserved[$i][$current_chair] == true) { 
                         
                         if(in_array($click_check, $selected_chair)) { ?>
@@ -125,7 +125,7 @@
 
                 if($i == 10 && $current_chair == 2){
                     if(!isset($chair_reserved[$i][$current_chair])) { ?>
-                        <img src="../assets/chairs/non_reserved_wheelchair.png" alt="niet gereserveerd" class="col mt-3 p-1 pointer" onclick="add_chair(<?= $current_chair .','. $i?>)" width="15" height="75">
+                        <img src="../assets/chairs/non_reserved_wheelchair.png" alt="niet gereserveerd" class="col mt-3 p-1 pointer" onclick="add_chair(<?= $current_chair .','. $i ?>, this)" width="15" height="75">
                 <?php } else if(isset($chair_reserved[$i][$current_chair]) && $chair_reserved[$i][$current_chair] == true) { 
                     
                         if(in_array($click_check, $selected_chair)) { ?>
@@ -136,7 +136,7 @@
                     }
                 } else {
                     if(!isset($chair_reserved[$i][$current_chair])) { ?>
-                        <img src="../assets/chairs/non_reserved_chair.png" alt="niet gereserveerd" class="col mt-3 p-1 pointer" onclick="add_chair(<?= $current_chair .','. $i?>)" width="15" height="75">
+                        <img src="../assets/chairs/non_reserved_chair.png" alt="niet gereserveerd" class="col mt-3 p-1 pointer" onclick="add_chair(<?= $current_chair .','. $i ?>, this)" width="15" height="75">
                 <?php } else if(isset($chair_reserved[$i][$current_chair]) && $chair_reserved[$i][$current_chair] == true) { 
                     
                         if(in_array($click_check, $selected_chair)) { ?>
@@ -151,7 +151,7 @@
             } else if($current_chair == 11 && $i <= 9 || $current_chair == 12 && $i == 10) { 
                     
                     if(!isset($chair_reserved[$i][$current_chair])) { ?>
-                        <img src="../assets/chairs/non_reserved_chair.png" alt="niet gereserveerd" class="col mt-3 p-1 pointer" onclick="add_chair(<?= $current_chair .','. $i?>)" width="15" height="75">
+                        <img src="../assets/chairs/non_reserved_chair.png" alt="niet gereserveerd" class="col mt-3 p-1 pointer" onclick="add_chair(<?= $current_chair .','. $i ?>, this)" width="15" height="75">
 
             <?php } else if(isset($chair_reserved[$i][$current_chair]) && $chair_reserved[$i][$current_chair] == true) {
                     
