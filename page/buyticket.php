@@ -194,7 +194,7 @@ if (!$sqli_prepare) {
                     <?= $is_clickable === true && $isSelected === false ? 'onclick="chooseChairPopUp(this);"' : '' ?>
                     <?= $isSelected === true ? 'onclick="remove_chair(this, \'' . $type . '\');"' : '' ?>
                     class="chair col mt-3 p-1 <?= $is_clickable ? 'pointer' : 'no-pointer' ?>" data-num="<?= $x ?>"
-                    data-row="<?= $i ?>" data-movieName="<?=  ?>" width="15" height="75">
+                    data-row="<?= $i ?>" width="15" height="75">
                 <?php
                     }
                 ?>

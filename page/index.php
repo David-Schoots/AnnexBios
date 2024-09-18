@@ -122,7 +122,7 @@ $data = getApiMovies();
         /* loop through each of the 12 movies */
         foreach ($data as $movie): ?>
             <div class="col">
-                <div class="card d-flex flex-column justify-content-between h-100" style="border: none; ove" >
+                <div class="card d-flex flex-column justify-content-between h-100" style="border: none;" >
                     <img src="<?php echo htmlspecialchars($movie['image']); ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
                          alt="<?php echo htmlspecialchars($movie['title']); ?>" />
                     <div class="card-body d-flex flex-column">

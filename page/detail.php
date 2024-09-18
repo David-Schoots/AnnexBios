@@ -23,15 +23,11 @@ include_once("header.php");
                         <div class="card-body">
                             <!-- Rating and Icons -->
                             <div class="d-flex flex-column align-items-start mb-3">
-                                <div class="w-100">
-                                    <span style="color: #6E4F7D; font-size:60px"><?php echo htmlspecialchars($movie['rating']); ?> Stars</span>
-                                </div>
-                                <div class="w-100 mt-2">
-                                    <!-- Age and Icons -->
-                                    <img src="../assets/kijkwijzers/kijkwijzer-12.png" alt="Age Rating" class="me-1" style="height: 40px;">
-                                    <img src="../assets/kijkwijzers/kijkwijzer-eng.png" alt="Icon 1" class="me-1" style="height: 40px;">
-                                    <img src="../assets/kijkwijzers/kijkwijzer-geweld.png" alt="Icon 2" style="height: 40px;">
-                                </div>
+                            <div class="w-100 mt-2">
+                                <!-- Age and Icons -->                                    
+                                <?php foreach ($movie['viewing_guides']['symbols'] as $symbol): ?>
+                                    <img src="<?= $symbol['image'] ?>" alt="<?= $symbol['name'] ?>" class="me-1" style="height: 40px;">
+                                <?php endforeach; ?>
                             </div>
 
                             <!-- Release Date -->
@@ -44,8 +40,8 @@ include_once("header.php");
 
                             <!-- Additional Info -->
                             <ul class="list-unstyled">
-                                <li><strong>Genre:</strong></li>
-                                <li><strong>Filmlengte:</strong><?= $movie['length']?></li>
+                            <li><strong>Genre:</strong> <?= implode(', ', array_column($movie['genres'], 'name')) ?></li>
+                                <li><strong>Filmlengte:</strong><?= $movie['length']?> minutes</li>
                                 <li><strong>Land:</strong> USA</li>
                                 <li><strong>IMDb score:</strong> <?=$movie['rating']?>/10 </li>
                                 <li><strong>Regisseur:</strong><?php 
