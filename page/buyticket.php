@@ -33,7 +33,7 @@ $sqli_prepare->bind_result($id, $chair_number, $chair_row, $date_chair_reserved)
 
 if (!$sqli_prepare) {
     echo mysqli_error($con);
-} else { 
+} else {
     if ($sqli_prepare->execute()) {
         while ($sqli_prepare->fetch()) {
             $current_time = new DateTime();
@@ -69,7 +69,7 @@ if (!$sqli_prepare) {
             $delete_prepare = $con->prepare("DELETE FROM `temporary_reserved_chairs` WHERE id = ?");
             $delete_prepare->bind_param("i", $delete);
             if (!$delete_prepare) {
-                echo mysqli_error($con); 
+                echo mysqli_error($con);
             } else {
                 $delete_prepare->execute();
                 $delete_prepare->close();
@@ -119,7 +119,7 @@ if (!$sqli_prepare) {
 
 <!-- Seat Selection UI -->
 <div class="container bg-white d-flex flex-column">
-    
+
     <div class="container my-5">
         <div class="row">
             <h4 class="p-4" style="font-size: 30px; color: #6E4F7D;">STAP 1: KIES JE STOEL</h4>
@@ -157,11 +157,11 @@ if (!$sqli_prepare) {
             </div>
             <!-- <?= $is_clickable ? 'onclick="' . $onClick . '(this);"' : '' ?> -->
             <?php
-                for ($i = 1; $i <= $total_rows; $i++) {
+            for ($i = 1; $i <= $total_rows; $i++) {
             ?>
-            <div class="d-flex">
-                <?php
-                    
+                <div class="d-flex">
+                    <?php
+
                     // Last row has 12 chairs, others have 11
                     $num_chairs = ($i === $total_rows) ? 12 : 11;
 
@@ -188,19 +188,19 @@ if (!$sqli_prepare) {
                                 }
                             }
                         }
-                ?>
-                <!-- Chair UI -->
-                <img src="<?= $src ?>" style="object-fit: contain;"
-                    <?= $is_clickable === true && $isSelected === false ? 'onclick="chooseChairPopUp(this);"' : '' ?>
-                    <?= $isSelected === true ? 'onclick="remove_chair(this, \'' . $type . '\');"' : '' ?>
-                    class="chair col mt-3 p-1 <?= $is_clickable ? 'pointer' : 'no-pointer' ?>" data-num="<?= $x ?>"
-                    data-row="<?= $i ?>" data-movieName="<?=  ?>" width="15" height="75">
-                <?php
+                    ?>
+                        <!-- Chair UI -->
+                        <img src="<?= $src ?>" style="object-fit: contain;"
+                            <?= $is_clickable === true && $isSelected === false ? 'onclick="chooseChairPopUp(this);"' : '' ?>
+                            <?= $isSelected === true ? 'onclick="remove_chair(this, \'' . $type . '\');"' : '' ?>
+                            class="chair col mt-3 p-1 <?= $is_clickable ? 'pointer' : 'no-pointer' ?>" data-num="<?= $x ?>"
+                            data-row="<?= $i ?>" width="15" height="75">
+                    <?php
                     }
-                ?>
-            </div>
+                    ?>
+                </div>
             <?php
-                }
+            }
             ?>
         </div>
     </div>
@@ -217,19 +217,19 @@ if (!$sqli_prepare) {
                     <th scope="col" class="text-end" style="width: 10%;">AANTAL</th>
                 </tr>
             </thead>
-            <tbody>    
+            <tbody>
                 <tr>
                     <td>Normaal</td>
                     <td class="text-end">€9,00</td>
                     <?php
-                        $normalTicketCount = 0;
-                        if(isset($_SESSION['temp_reserved_chair'])) {
-                            foreach($_SESSION['temp_reserved_chair'] as $chair) {
-                                if ($chair['type'] === 'normal') {
-                                    $normalTicketCount++;
-                                }
+                    $normalTicketCount = 0;
+                    if (isset($_SESSION['temp_reserved_chair'])) {
+                        foreach ($_SESSION['temp_reserved_chair'] as $chair) {
+                            if ($chair['type'] === 'normal') {
+                                $normalTicketCount++;
                             }
                         }
+                    }
                     ?>
                     <td class="text-end">
                         <input oninput="ticketValidator();"
@@ -242,14 +242,14 @@ if (!$sqli_prepare) {
                     <td>Kind t/m 11 jaar</td>
                     <td class="text-end">€5,00</td>
                     <?php
-                        $childTicketCount = 0;
-                        if(isset($_SESSION['temp_reserved_chair'])) {
-                            foreach($_SESSION['temp_reserved_chair'] as $chair) {
-                                if ($chair['type'] === 'child') {
-                                    $childTicketCount++;
-                                }
+                    $childTicketCount = 0;
+                    if (isset($_SESSION['temp_reserved_chair'])) {
+                        foreach ($_SESSION['temp_reserved_chair'] as $chair) {
+                            if ($chair['type'] === 'child') {
+                                $childTicketCount++;
                             }
                         }
+                    }
                     ?>
                     <td class="text-end">
                         <input oninput="ticketValidator();"
@@ -262,14 +262,14 @@ if (!$sqli_prepare) {
                     <td>65+</td>
                     <td class="text-end">€7,00</td>
                     <?php
-                        $olderTicketCount = 0;
-                        if(isset($_SESSION['temp_reserved_chair'])) {
-                            foreach($_SESSION['temp_reserved_chair'] as $chair) {
-                                if ($chair['type'] === 'older') {
-                                    $olderTicketCount++;
-                                }
+                    $olderTicketCount = 0;
+                    if (isset($_SESSION['temp_reserved_chair'])) {
+                        foreach ($_SESSION['temp_reserved_chair'] as $chair) {
+                            if ($chair['type'] === 'older') {
+                                $olderTicketCount++;
                             }
                         }
+                    }
                     ?>
                     <td class="text-end">
                         <input oninput="ticketValidator();"
@@ -286,7 +286,7 @@ if (!$sqli_prepare) {
                     $totalPrice = $normalTicketTotalPrijs + $childTicketTotalPrijs + $olderTicketTotalPrijs;
                     ?>
                     <td>Totaal Prijs</td>
-                    <td class="text-end" id="total-price-ticket"><?="€" . $totalPrice . ",00"  ?></td>
+                    <td class="text-end" id="total-price-ticket"><?= "€" . $totalPrice . ",00"  ?></td>
                     <td class="text-end">
                     </td>
                 </tr>

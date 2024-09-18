@@ -78,22 +78,34 @@ $data = getApiMovies();
 <!-- movie posters -->
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
-        
-        <?php 
+
+        <?php
         /* show only the first 12 movies on screen */
-        $moviesToShow = array_slice($data['data'], 0, 12);
-        
+        $data = array_slice($data['data'], 0, 12);
+
         /* loop through each of the 12 movies */
-        foreach ($moviesToShow as $movie): ?>
+        foreach ($data as $movie): ?>
             <div class="col">
                 <div class="card d-flex flex-column justify-content-between h-100" style="border: none;">
                     <img src="<?php echo htmlspecialchars($movie['image']); ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
-                         alt="<?php echo htmlspecialchars($movie['title']); ?>" />
+                        alt="<?php echo htmlspecialchars($movie['title']); ?>" />
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-uppercase"><?php echo htmlspecialchars($movie['title']); ?></h5>
+                        <h5 class="card-title text-uppercase" style="min-height: 60px;"><?php echo htmlspecialchars($movie['title']); ?></h5>
                         <span style="color: #6E4F7D; font-size: 1.5rem;"><?php echo htmlspecialchars($movie['rating']); ?> Stars</span>
                         <p class="card-text">Release: <?php echo htmlspecialchars($movie['release_date']); ?></p>
-                        <p class="card-text"><?php echo htmlspecialchars($movie['description']); ?></p>
+
+                        <p class="card-text">
+                            <?php
+                            $description = htmlspecialchars($movie['description']);
+                            $maxLength = 100;
+                            if (strlen($description) > $maxLength) {
+                                echo substr($description, 0, $maxLength) . '...';
+                            } else {
+                                echo $description;
+                            }
+                            ?>
+                        </p>
+
                         <div class="mt-auto">
                             <a href="detail.php?id=<?= htmlspecialchars($movie['api_id']); ?>" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
                         </div>
@@ -101,6 +113,7 @@ $data = getApiMovies();
                 </div>
             </div>
         <?php endforeach; ?>
+
     </div>
 </div>
 

@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* code for the ticket price */
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const ticketPrices = {
     normaal: 9, // Price for Volwassenen
@@ -17,31 +16,29 @@ document.addEventListener("DOMContentLoaded", function () {
     ouderen: 7, // Price for 65 +
   };
 
-
-
   function updateTicketCount() {
     var totalTickets = 0;
 
     document.querySelectorAll(".dropdown").forEach(function (dropdown) {
       totalTickets += 1;
-      var selectedValue = document.getElementById('dropdownMenuButton' + totalTickets).textContent;
-      
+      var selectedValue = document.getElementById(
+        "dropdownMenuButton" + totalTickets
+      ).textContent;
+
       if (selectedValue !== undefined) {
-       
         if (selectedValue == "Normaal") {
-          typeTicket = document.getElementById('ticket-' + totalTickets);
-          typeTicket.innerHTML = '€' + ticketPrices['normaal'] + ',00';
-          console.log('test1');
+          typeTicket = document.getElementById("ticket-" + totalTickets);
+          typeTicket.innerHTML = "€" + ticketPrices["normaal"] + ",00";
+          console.log("test1");
         } else if (selectedValue == "Kind t/m 11") {
-          typeTicket = document.getElementById('ticket-' + totalTickets);
-          typeTicket.innerHTML = '€' + ticketPrices['kind'] + ',00';
-          console.log('test2');
+          typeTicket = document.getElementById("ticket-" + totalTickets);
+          typeTicket.innerHTML = "€" + ticketPrices["kind"] + ",00";
+          console.log("test2");
         } else if (selectedValue == "65+") {
-          typeTicket = document.getElementById('ticket-' + totalTickets);
-          typeTicket.innerHTML = '€' + ticketPrices['ouderen'] + ',00';
-          console.log('test3');
+          typeTicket = document.getElementById("ticket-" + totalTickets);
+          typeTicket.innerHTML = "€" + ticketPrices["ouderen"] + ",00";
+          console.log("test3");
         }
-        
       }
     });
 
