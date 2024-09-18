@@ -4,7 +4,7 @@ include_once("header.php");
 
 <!-- Introduction Section -->
 <div class="container mt-5 text-white p-4" style="background-color: #6E4F7D;">
-    <h1 class="mb-4 text-uppercase" style="font-size: 60px;">welkom bij annexbios 3</h1>
+    <h1 class="mb-4 text-uppercase" style="font-size: 60px;">welkom bij annexbios bilthoven</h1>
     <p class="mb-4" style="font-size: 25px; max-width: 850px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
     <button class="px-4 py-2 fw-bold" style="color: #6E4F7D; border: none;">BEKIJK DE DRAAIENDE FILMS</button>
 </div>
