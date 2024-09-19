@@ -46,70 +46,78 @@ $data = getApiMovies();
     </div>
 </div>
 
+<!-- Main container -->
 <div class="container my-5">
     <div class="row align-items-center">
         <!-- Main icon button -->
         <div class="col-auto">
-            <button id="mainButton" class="btn p-2" style="background-color: #000000; border: none;">
+            <button class="btn p-2" style="background-color: #000000; border: none;" type="button" data-bs-toggle="offcanvas" data-bs-target="#extraOptions" aria-expanded="false" aria-controls="extraOptions">
                 <i class="bi bi-sliders text-white" style="font-size: 24px;"></i>
             </button>
-        </div>
-
-        <!-- Extra buttons (radio buttons + dropdown) -->
-        <div id="extraButtons" class="col d-flex align-items-center">
-            <!-- Radio buttons with individual white backgrounds including the radio button itself -->
-            <div class="p-2 bg-white rounded shadow-sm d-flex align-items-center me-3" style="width: 100px;">
-                <input class="form-check-input me-2" type="radio" name="filterOptions" id="radioFilms" checked>
-                <label class="form-check-label text-uppercase mb-0" for="radioFilms" style="color: #6E4F7D;">
-                    Films
-                </label>
-            </div>
-            <div class="p-2 bg-white rounded shadow-sm d-flex align-items-center me-3" style="width: 150px;">
-                <input class="form-check-input me-2" type="radio" name="filterOptions" id="radioWeek">
-                <label class="form-check-label text-uppercase mb-0" for="radioWeek" style="color: #6E4F7D;">
-                    Deze Week
-                </label>
-            </div>
-            <div class="p-2 bg-white rounded shadow-sm d-flex align-items-center me-3" style="width: 150px;">
-                <input class="form-check-input me-2" type="radio" name="filterOptions" id="radioVandaag">
-                <label class="form-check-label text-uppercase mb-0" for="radioVandaag" style="color: #6E4F7D;">
-                    Vandaag
-                </label>
-            </div>
-
-            <!-- Dropdown with individual white background and same width -->
-            <div class="dropdown p-2 bg-white rounded shadow-sm">
-                <button class="btn btn-light dropdown-toggle text-uppercase w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6E4F7D;">
-                    Categorie
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-                    <li class="form-check">
-                        <input class="form-check-input" type="radio" name="categoryRadio" id="categoryAction">
-                        <label class="form-check-label" for="categoryAction">
-                            Action
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input" type="radio" name="categoryRadio" id="categoryAnother">
-                        <label class="form-check-label" for="categoryAnother">
-                            Another Action
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input" type="radio" name="categoryRadio" id="categoryElse">
-                        <label class="form-check-label" for="categoryElse">
-                            Something Else
-                        </label>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
 
+<!-- Offcanvas menu for extra options -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="extraOptions" aria-labelledby="extraOptionsLabel">
+    <div class="offcanvas-header">
+        <h5 id="extraOptionsLabel">Filter Opties</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Radio buttons -->
+        <div class="mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterOptions" id="radioFilms" checked>
+                <label class="form-check-label" for="radioFilms" style="color: #6E4F7D;">
+                    Films
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterOptions" id="radioWeek">
+                <label class="form-check-label" for="radioWeek" style="color: #6E4F7D;">
+                    Deze Week
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterOptions" id="radioVandaag">
+                <label class="form-check-label" for="radioVandaag" style="color: #6E4F7D;">
+                    Vandaag
+                </label>
+            </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle text-uppercase w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6E4F7D;">
+                Categorie
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                <li><a class="dropdown-item" href="#">
+                    <input class="form-check-input me-2" type="radio" name="categoryRadio" id="categoryAction">
+                    <label class="form-check-label" for="categoryAction">
+                        Action
+                    </label>
+                </a></li>
+                <li><a class="dropdown-item" href="#">
+                    <input class="form-check-input me-2" type="radio" name="categoryRadio" id="categoryAnother">
+                    <label class="form-check-label" for="categoryAnother">
+                        Another Action
+                    </label>
+                </a></li>
+                <li><a class="dropdown-item" href="#">
+                    <input class="form-check-input me-2" type="radio" name="categoryRadio" id="categoryElse">
+                    <label class="form-check-label" for="categoryElse">
+                        Something Else
+                    </label>
+                </a></li>
+            </ul>
+        </div>
+    </div>
 </div>
-</div>
-</div>
+
+
+
 
 <!-- movie posters -->
 <div class="container my-5">

@@ -7,6 +7,8 @@ include_once("../api/api-call.php"); // Ensure api call connection is included
 $id = htmlspecialchars($_GET['id']);
 $data = getApiMovie($id); // Get the data from the api that is linked to a specific movie
 
+$playingData = getApiMoviePlaying($id);
+
 // Initialize variables
 $editable_chairs = [];
 $total_rows = 10;
@@ -93,31 +95,12 @@ if (!$sqli_prepare) {
         <p class="d-flex justify-content-center align-items-center p-2 mb-0 bg-white"><?= $movie['title'] ?></p>
         <?php endforeach; ?>
 
+        <select class="form-select">
+            <?php foreach (array_column($playingData['data'], 'play_time') as $play_time): ?>
+                <option value="<?= htmlspecialchars($play_time) ?>"><?= htmlspecialchars($play_time) ?></option>
+            <?php endforeach; ?>
+        </select>
 
-        <!-- Datepicker Dropdown -->
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" style="color: #6E4F7D; border-radius: 0;" type="button"
-                id="dropdownDateButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Datum
-            </button>
-            <ul class="dropdown-menu p-3" aria-labelledby="dropdownDateButton">
-                <li><input type="date" class="form-control" placeholder="Kies een datum"></li>
-            </ul>
-        </div>
-
-        <!-- Time Dropdown -->
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" style="color: #6E4F7D; border-radius: 0;" type="button"
-                id="dropdownTimeButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Tijdstip
-            </button>
-            <ul class="dropdown-menu p-3" aria-labelledby="dropdownTimeButton">
-                <li>
-                    <!-- Use HTML5 time input -->
-                    <input type="time" class="form-control" placeholder="Kies een tijdstip">
-                </li>
-            </ul>
-        </div>
     </div>
 </div>
 

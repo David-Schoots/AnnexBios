@@ -2,6 +2,8 @@
 include_once("header.php");
 include_once("../api/api-call.php");
 $data = getApiMovies();
+$Detail = getApiMovie($id);
+
 ?>
 
 <!-- Movie Section -->
@@ -14,65 +16,70 @@ $data = getApiMovies();
 
 </div>
 
+<!-- Main container -->
 <div class="container my-5">
-    <div class="row">
-        <div class="col-3 d-flex align-items-center">
-            <!-- Main icon button -->
-            <i id="mainButton" class="bi bi-sliders btn text-white me-3" style="font-size: 24px; cursor: pointer; background-color: #6E4F7D; border: none;"></i>
-
-            <!-- Extra buttons (will appear next to the icon) -->
-            <div id="extraButtons" class="d-none d-flex align-items-center bg-white p-2 rounded shadow-sm">
-                <!-- Radio buttons -->
-                <div class="form-check me-3">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioFilms">
-                    <label class="form-check-label" for="radioFilms">
-                        Films
-                    </label>
-                </div>
-                <div class="form-check me-3">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioWeek">
-                    <label class="form-check-label" for="radioWeek">
-                        Deze Week
-                    </label>
-                </div>
-                <div class="form-check me-3">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioVandaag">
-                    <label class="form-check-label" for="radioVandaag">
-                        Vandaag
-                    </label>
-                </div>
-
-                <!-- Dropdown with radio buttons -->
-                <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle text-uppercase" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorie
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-                        <li class="form-check">
-                            <input class="form-check-input" type="radio" name="categoryRadio" id="categoryAction">
-                            <label class="form-check-label" for="categoryAction">
-                                Action
-                            </label>
-                        </li>
-                        <li class="form-check">
-                            <input class="form-check-input" type="radio" name="categoryRadio" id="categoryAnother">
-                            <label class="form-check-label" for="categoryAnother">
-                                Another Action
-                            </label>
-                        </li>
-                        <li class="form-check">
-                            <input class="form-check-input" type="radio" name="categoryRadio" id="categoryElse">
-                            <label class="form-check-label" for="categoryElse">
-                                Something Else
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <div class="row align-items-center">
+        <!-- Main icon button -->
+        <div class="col-auto">
+            <button class="btn p-2" style="background-color: #000000; border: none;" type="button" data-bs-toggle="offcanvas" data-bs-target="#extraOptions" aria-expanded="false" aria-controls="extraOptions">
+                <i class="bi bi-sliders text-white" style="font-size: 24px;"></i>
+            </button>
         </div>
     </div>
 </div>
 
+<!-- Offcanvas menu for extra options -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="extraOptions" aria-labelledby="extraOptionsLabel">
+    <div class="offcanvas-header">
+        <h5 id="extraOptionsLabel">Filter Opties</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Radio buttons -->
+        <div class="mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterOptions" id="radioFilms" checked>
+                <label class="form-check-label" for="radioFilms" style="color: #6E4F7D;">
+                    Films
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterOptions" id="radioWeek">
+                <label class="form-check-label" for="radioWeek" style="color: #6E4F7D;">
+                    Deze Week
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterOptions" id="radioVandaag">
+                <label class="form-check-label" for="radioVandaag" style="color: #6E4F7D;">
+                    Vandaag
+                </label>
+            </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="dropdown">
+    <button class="btn btn-light dropdown-toggle text-uppercase w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6E4F7D;">
+        genres
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+        <?php foreach($data['data'] as $movie): ?>
+            <?php foreach($movie['genres'] as $genre): ?>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <input class="form-check-input me-2" type="radio" name="categoryRadio" id="category<?php echo htmlspecialchars($genre['name']); ?>">
+                        <label class="form-check-label" for="category<?php echo htmlspecialchars($genre['name']); ?>">
+                            <?php echo htmlspecialchars($genre['name']); ?>
+                        </label>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    </ul>
+</div>
+
+    </div>
+</div>
 
 <!-- Movie Posters -->
 <!-- movie posters -->
