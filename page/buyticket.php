@@ -1,7 +1,6 @@
 <?php
 include_once("header.php");
 include "../modules/core/db_connect.php"; // Ensure database connection is included
-
 include_once("../api/api-call.php"); // Ensure api call connection is included
 
 
@@ -14,6 +13,8 @@ $total_rows = 10;
 $chair_reserved = [];
 $delete_chair = [];
 $selected_chair = [];
+
+
 
 // Get selected chairs from session 
 if (isset($_SESSION['temp_reserved_chair'])) {
@@ -88,7 +89,10 @@ if (!$sqli_prepare) {
 <!-- Dropdown for Movie Selection, Datepicker, and Timepicker -->
 <div class="container col-12 text-uppercase d-flex align-items-center p-0 my-4">
     <div class="col-12 d-flex flex-column flex-sm-row gap-3">
+        <?php foreach ($data['data'] as $movie): ?>
         <p class="d-flex justify-content-center align-items-center p-2 mb-0 bg-white"><?= $movie['title'] ?></p>
+        <?php endforeach; ?>
+
 
         <!-- Datepicker Dropdown -->
         <div class="dropdown">

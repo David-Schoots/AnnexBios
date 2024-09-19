@@ -1,14 +1,14 @@
 <?php
 include_once("../api/api-call.php");
 $id = htmlspecialchars($_GET['id']);
-$data = getApiMovie($id);
+$Detail = getApiMovie($id);
 
 include_once("header.php");
 
 ?>
 
 
-<?php foreach ($data['data'] as $movie): ?>
+<?php foreach ($Detail['data'] as $movie): ?>
     <?php if (isset($movie)): ?>
         <div class="container mt-5">
             <p class="mb-4 p-3 fw-bold" style="background-color: #fff; color:#6E4F7D; font-size:35px;"><?php echo htmlspecialchars($movie['title']); ?></p>

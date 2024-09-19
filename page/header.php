@@ -1,32 +1,12 @@
 <?php
-include_once("movieloop.php");
+include_once("../api/api-call.php");
+$data = getApiMovies();
 
     session_start();
     if(!isset($_SESSION['temp_reserved_chair'])) {
         $_SESSION['temp_reserved_chair'] = [];
     }
 
-
-/* checks if the id from the film is in the movieloop.php */
-/* if (isset($_GET['data'])) {
-    // Decode and deserialize the data
-    $encodedMovie = $_GET['id'];
-    $movie = json_decode(base64_decode($encodedMovie), true);
-} */
-
-/* checks if the button with id [id] is pressed  */
-
-/* if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $movie = null;
-    foreach ($getMovies as $item) {
-        if ($item['id'] == $id) {
-            $movie = $item;
-            break;
-        }
-    }
-}
- */
 ?>
 
 <!doctype html>
@@ -102,13 +82,27 @@ include_once("movieloop.php");
         <div class="purple-section d-flex flex-column flex-md-row align-items-center text-center text-md-start"
             style="background-color: #6e4778; padding: 20px; color: white; font-weight: bold;">
             <span class="mb-2 mb-md-0" style="margin-left: 5%;">KOOP JE TICKETS</span>
-            <select class="text-white fw-bold mt-2 mt-md-0 ms-md-3"
-                style="background-color: #a386b1; height: 5vh; width: 230px; font-size: 15px;">
-                <option>Kies je film</option>
-            </select>
-            <button class="fw-bold mt-2 mt-md-0 ms-md-3"
-                style="background-color: #fff; color: #6e4778; font-size: 15px; height: 4vh; width: 150px;">BESTEL
-                TICKETS</button>
+            <form action="buyticket.php" method="get">
+                <select id="id" name="id" class="text-white fw-bold mt-2 mt-md-0 ms-md-3"
+                    style="background-color: #a386b1; height: 5vh; width: 230px; font-size: 15px;">
+                    <?php
+                        $get_id = htmlspecialchars($_GET['id']) ?? null;
+                    ?>
+                <?php foreach ($data['data'] as $movie):?>
+                    <?php
+                        $movie_id = htmlspecialchars($movie['api_id']);
+                    ?>
+                    <option value="<?= htmlspecialchars($movie_id) ?>" <?= isset($get_id) && $movie_id == $get_id ? 'selected' : '' ?>><?php echo htmlspecialchars($movie['title']);?></option>
+                <?php endforeach; ?>
+                </select>
+                <input type="submit" value="BESTEL TICKETS">
+            </form>
+                    <!-- <a href="buyticket.php?id=<?= $movie['api_id']?>"><button class="fw-bold mt-2 mt-md-0 ms-md-3" style="background-color: #fff; color: #6e4778; font-size: 15px; height: 4vh; width: 150px;">
+                    BESTEL TICKETS</button>
+                    </a> -->
+
+
+
         </div>
     </div>
 
