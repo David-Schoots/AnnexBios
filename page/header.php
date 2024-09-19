@@ -23,7 +23,6 @@ if (!isset($_SESSION['temp_reserved_chair'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <!-- cursor.css -->
     <link rel="stylesheet" href="../css/cursor.css">
-    <link rel="stylesheet" href="../css/override.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -67,7 +66,7 @@ if (!isset($_SESSION['temp_reserved_chair'])) {
                 <select id="id" name="id" class="text-white fw-bold mt-2 mt-md-0 ms-md-3"
                     style="background-color: #a386b1; height: 5vh; width: 230px; font-size: 15px;">
                     <?php
-                        $get_id = htmlspecialchars($_GET['id']) ?? null;
+                        $get_id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null;
                     ?>
                     <?php foreach ($data['data'] as $movie): ?>
                         <?php

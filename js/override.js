@@ -1,22 +1,22 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* document.addEventListener("DOMContentLoaded", function () {
   const mainButton = document.getElementById("mainButton");
   const extraButtons = document.getElementById("extraButtons");
 
   mainButton.addEventListener("click", function () {
     extraButtons.classList.toggle("d-none");
   });
-});
+}); */
 
 /* code for the ticket price */
 
-document.addEventListener("DOMContentLoaded", function () {
+/* document.addEventListener("DOMContentLoaded", function () {
   const ticketPrices = {
     normaal: 9, // Price for Volwassenen
     kind: 5, // Price for Kind t/m 11 jaar
     ouderen: 7, // Price for 65 +
-  };
+  }; */
 
-  function updateTicketCount() {
+/* function updateTicketCount() {
     var totalTickets = 0;
 
     document.querySelectorAll(".dropdown").forEach(function (dropdown) {
@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
           typeTicket.innerHTML = "€" + ticketPrices["ouderen"] + ",00";
           console.log("test3");
         }
-      }
-    });
+      } */
+/*    }); */
 
-    // document.getElementById("ticketCount").textContent = totalTickets;
-    // document.getElementById(
-    //   "totalAmount"
-    // ).textContent = `€${totalAmount.toFixed(2)}`;
-  }
+// document.getElementById("ticketCount").textContent = totalTickets;
+// document.getElementById(
+//   "totalAmount"
+// ).textContent = `€${totalAmount.toFixed(2)}`;
+/* }
 
   document.querySelectorAll(".dropdown-item").forEach(function (item) {
     item.addEventListener("click", function (event) {
@@ -61,4 +61,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   updateTicketCount(); // Initialize ticket count on page load
-});
+}); */

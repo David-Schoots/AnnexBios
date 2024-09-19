@@ -1,7 +1,6 @@
-
 /* code for the ticket price */
 
-document.addEventListener("DOMContentLoaded", function () {
+/* document.addEventListener("DOMContentLoaded", function () {
   const ticketPrices = {
     normaal: 9, // Price for Volwassenen
     kind: 5, // Price for Kind t/m 11 jaar
@@ -54,3 +53,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateTicketCount(); // Initialize ticket count on page load
 });
+ */
