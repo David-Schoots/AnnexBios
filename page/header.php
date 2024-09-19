@@ -6,32 +6,6 @@ session_start();
 if (!isset($_SESSION['temp_reserved_chair'])) {
     $_SESSION['temp_reserved_chair'] = [];
 }
-session_start();
-if (!isset($_SESSION['temp_reserved_chair'])) {
-    $_SESSION['temp_reserved_chair'] = [];
-}
-
-
-/* checks if the id from the film is in the movieloop.php */
-/* if (isset($_GET['data'])) {
-    // Decode and deserialize the data
-    $encodedMovie = $_GET['id'];
-    $movie = json_decode(base64_decode($encodedMovie), true);
-} */
-
-/* checks if the button with id [id] is pressed  */
-
-/* if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $movie = null;
-    foreach ($getMovies as $item) {
-        if ($item['id'] == $id) {
-            $movie = $item;
-            break;
-        }
-    }
-}
- */
 ?>
 
 <!doctype html>

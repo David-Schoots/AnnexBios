@@ -9,6 +9,13 @@ $data = getApiMovie($id); // Get the data from the api that is linked to a speci
 
 $playingData = getApiMoviePlaying($id);
 
+if (empty($playingData) || !isset($playingData['data'])) {
+    echo '<div class="alert alert-danger" role="alert">De film draait momenteel niet. Probeer het later opnieuw.</div>';
+    exit;
+}
+
+
+
 // Initialize variables
 $editable_chairs = [];
 $total_rows = 10;
@@ -103,6 +110,8 @@ if (!$sqli_prepare) {
 
     </div>
 </div>
+
+
 
 <!-- Seat Selection UI -->
 <div class="container bg-white d-flex flex-column">
