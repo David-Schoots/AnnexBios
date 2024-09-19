@@ -21,6 +21,11 @@ body {
     height: 80px;
   }
 
+  body {
+    background-color: black !important;
+    padding-top: 300px;
+  }
+
   .purple-section {
     flex-direction: column;
     text-align: center;

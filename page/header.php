@@ -1,10 +1,10 @@
 <?php
 include_once("movieloop.php");
 
-    session_start();
-    if(!isset($_SESSION['temp_reserved_chair'])) {
-        $_SESSION['temp_reserved_chair'] = [];
-    }
+session_start();
+if (!isset($_SESSION['temp_reserved_chair'])) {
+    $_SESSION['temp_reserved_chair'] = [];
+}
 
 
 /* checks if the id from the film is in the movieloop.php */
@@ -78,11 +78,9 @@ include_once("movieloop.php");
                     <img src="../assets/logo/bilthoven_logp.png" alt="AnnexBios" style="height: 100px; margin-left:15%"
                         class="img-fluid">
                 </a>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <div class="navbar-toggler collapsed">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </div>
                 <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 6%;">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -126,7 +124,7 @@ include_once("movieloop.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha512-ux1VHIyaPxawuad8d1wr1i9l4mTwukRq5B3s8G3nEmdENnKF5wKfOV6MEUH0k/rNT4mFr/yL+ozoDiwhUQekTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-    
+
 
 </body>
 

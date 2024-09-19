@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const toggler = document.querySelector(".navbar-toggler");
+toggler.addEventListener("click", () => {
+  const expander = document.querySelector(".navbar-collapse");
+  expander.classList.toggle("collapse");
+});
+
 /* code for the ticket price */
 
 document.addEventListener("DOMContentLoaded", function () {
