@@ -1,12 +1,20 @@
 <?php
 include_once("header.php");
 include "../modules/core/db_connect.php"; // Ensure database connection is included
-
 include_once("../api/api-call.php"); // Ensure api call connection is included
 
 
 $id = htmlspecialchars($_GET['id']);
 $data = getApiMovie($id); // Get the data from the api that is linked to a specific movie
+
+$playingData = getApiMoviePlaying($id);
+
+if (empty($playingData) || !isset($playingData['data'])) {
+    echo '<div class="alert alert-danger" role="alert">De film draait momenteel niet. Probeer het later opnieuw.</div>';
+    exit;
+}
+
+
 $movieName = $data['data'][0]['title'];
 
 // Initialize variables
@@ -15,7 +23,9 @@ $total_rows = 10;
 $chair_reserved = [];
 $delete_chair = [];
 $selected_chair = [];
-// session_destroy();
+
+
+
 // Get selected chairs from session 
 if (isset($_SESSION['temp_reserved_chair'])) {
     foreach ($_SESSION['temp_reserved_chair'] as $key => $value) {
@@ -37,7 +47,7 @@ $sqli_prepare->bind_result($id, $chair_number, $chair_row, $date_chair_reserved)
 
 if (!$sqli_prepare) {
     echo mysqli_error($con);
-} else { 
+} else {
     if ($sqli_prepare->execute()) {
         while ($sqli_prepare->fetch()) {
             $current_time = new DateTime();
@@ -73,7 +83,7 @@ if (!$sqli_prepare) {
             $delete_prepare = $con->prepare("DELETE FROM `temporary_reserved_chairs` WHERE id = ?");
             $delete_prepare->bind_param("i", $delete);
             if (!$delete_prepare) {
-                echo mysqli_error($con); 
+                echo mysqli_error($con);
             } else {
                 $delete_prepare->execute();
                 $delete_prepare->close();
@@ -92,38 +102,24 @@ if (!$sqli_prepare) {
 <!-- Dropdown for Movie Selection, Datepicker, and Timepicker -->
 <div class="container col-12 text-uppercase d-flex align-items-center p-0 my-4">
     <div class="col-12 d-flex flex-column flex-sm-row gap-3">
-        <p class="d-flex justify-content-center align-items-center p-2 mb-0 bg-white"><?= $movieName ?></p>
+        <?php foreach ($data['data'] as $movie): ?>
+        <p class="d-flex justify-content-center align-items-center p-2 mb-0 bg-white"><?= $movie['title'] ?></p>
+        <?php endforeach; ?>
 
-        <!-- Datepicker Dropdown -->
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" style="color: #6E4F7D; border-radius: 0;" type="button"
-                id="dropdownDateButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Datum
-            </button>
-            <ul class="dropdown-menu p-3" aria-labelledby="dropdownDateButton">
-                <li><input type="date" class="form-control" placeholder="Kies een datum"></li>
-            </ul>
-        </div>
+        <select class="form-select">
+            <?php foreach (array_column($playingData['data'], 'play_time') as $play_time): ?>
+                <option value="<?= htmlspecialchars($play_time) ?>"><?= htmlspecialchars($play_time) ?></option>
+            <?php endforeach; ?>
+        </select>
 
-        <!-- Time Dropdown -->
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" style="color: #6E4F7D; border-radius: 0;" type="button"
-                id="dropdownTimeButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Tijdstip
-            </button>
-            <ul class="dropdown-menu p-3" aria-labelledby="dropdownTimeButton">
-                <li>
-                    <!-- Use HTML5 time input -->
-                    <input type="time" class="form-control" placeholder="Kies een tijdstip">
-                </li>
-            </ul>
-        </div>
     </div>
 </div>
 
+
+
 <!-- Seat Selection UI -->
 <div class="container bg-white d-flex flex-column">
-    
+
     <div class="container my-5">
         <div class="row">
             <h4 class="p-4" style="font-size: 30px; color: #6E4F7D;">STAP 1: KIES JE STOEL</h4>
@@ -161,11 +157,11 @@ if (!$sqli_prepare) {
             </div>
             
             <?php
-                for ($i = 1; $i <= $total_rows; $i++) {
+            for ($i = 1; $i <= $total_rows; $i++) {
             ?>
-            <div class="d-flex">
-                <?php
-                    
+                <div class="d-flex">
+                    <?php
+
                     // Last row has 12 chairs, others have 11
                     $num_chairs = ($i === $total_rows) ? 12 : 11;
 
@@ -201,10 +197,10 @@ if (!$sqli_prepare) {
                     data-row="<?= $i ?>" data-name="<?= $movieName ?>" width="15" height="75">
                 <?php
                     }
-                ?>
-            </div>
+                    ?>
+                </div>
             <?php
-                }
+            }
             ?>
         </div>
     </div>
@@ -221,7 +217,7 @@ if (!$sqli_prepare) {
                     <th scope="col" class="text-end" style="width: 10%;">AANTAL</th>
                 </tr>
             </thead>
-            <tbody>    
+            <tbody>
                 <tr>
                     <td>Normaal</td>
                     <td class="text-end">€9,00</td>
@@ -290,7 +286,7 @@ if (!$sqli_prepare) {
                     $totalPrice = $normalTicketTotalPrijs + $childTicketTotalPrijs + $olderTicketTotalPrijs;
                     ?>
                     <td>Totaal Prijs</td>
-                    <td class="text-end" id="total-price-ticket"><?="€" . $totalPrice . ",00"  ?></td>
+                    <td class="text-end" id="total-price-ticket"><?= "€" . $totalPrice . ",00"  ?></td>
                     <td class="text-end">
                     </td>
                 </tr>

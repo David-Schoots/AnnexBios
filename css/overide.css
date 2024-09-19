@@ -1,15 +1,11 @@
 /* all overide */
-
+/* 
 .card-img-top {
   height: 400px;
   object-fit: cover;
   width: 100%;
-}
+} */
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .card-img-top {
     height: 200px; /* Maak de afbeelding kleiner op telefoons */
-  }
-}
-
-
