@@ -3,7 +3,12 @@ include_once("header.php");
 include_once("../api/api-call.php");
 $data = getApiMovies();
 ?>
-
+<?php
+    if(isset($_POST['submit'])){ ?>
+        <div class="container-fluid position-absolute bg-white">
+        </div>
+<?php }
+?>
 <!-- Introduction Section -->
 <div class="container mt-5 text-white p-4" style="background-color: #6E4F7D;">
     <h1 class="mb-4 text-uppercase" style="font-size: 60px;">welkom bij annexbios 3</h1>

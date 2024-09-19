@@ -6,11 +6,6 @@ include_once("movieloop.php");
         $_SESSION['temp_reserved_chair'] = [];
     }
 
-    session_start();
-    if(!isset($_SESSION['temp_reserved_chair'])) {
-        $_SESSION['temp_reserved_chair'] = [];
-    }
-
 /* checks if the id from the film is in the movieloop.php */
 /* if (isset($_GET['data'])) {
     // Decode and deserialize the data

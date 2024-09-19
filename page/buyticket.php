@@ -7,6 +7,7 @@ include_once("../api/api-call.php"); // Ensure api call connection is included
 
 $id = htmlspecialchars($_GET['id']);
 $data = getApiMovie($id); // Get the data from the api that is linked to a specific movie
+$movieName = $data['data'][0]['title'];
 
 // Initialize variables
 $editable_chairs = [];
@@ -14,20 +15,23 @@ $total_rows = 10;
 $chair_reserved = [];
 $delete_chair = [];
 $selected_chair = [];
-
+// session_destroy();
 // Get selected chairs from session 
 if (isset($_SESSION['temp_reserved_chair'])) {
     foreach ($_SESSION['temp_reserved_chair'] as $key => $value) {
-        $selected_chair[] = [
-            "row" => $value['row'],
-            "num" => $value['num'],
-            "type" => $value['type']
+       if($value['name'] == $movieName) {
+            $selected_chair[] = [
+                "row" => $value['row'],
+                "num" => $value['num'],
+                "type" => $value['type'],
+                "name" => $value['name']
         ];
+       }
     }
 }
 
 // Query database for reserved chairs
-$query = "SELECT id, chair_number, chair_row, date_chair_reserved FROM temporary_reserved_chairs";
+$query = "SELECT id, chair_number, chair_row, date_chair_reserved FROM temporary_reserved_chairs WHERE movie_name = '$movieName'";
 $sqli_prepare = $con->prepare($query);
 $sqli_prepare->bind_result($id, $chair_number, $chair_row, $date_chair_reserved);
 
@@ -88,7 +92,7 @@ if (!$sqli_prepare) {
 <!-- Dropdown for Movie Selection, Datepicker, and Timepicker -->
 <div class="container col-12 text-uppercase d-flex align-items-center p-0 my-4">
     <div class="col-12 d-flex flex-column flex-sm-row gap-3">
-        <p class="d-flex justify-content-center align-items-center p-2 mb-0 bg-white"><?= $movie['title'] ?></p>
+        <p class="d-flex justify-content-center align-items-center p-2 mb-0 bg-white"><?= $movieName ?></p>
 
         <!-- Datepicker Dropdown -->
         <div class="dropdown">
@@ -155,7 +159,7 @@ if (!$sqli_prepare) {
                     </tbody>
                 </table>
             </div>
-            <!-- <?= $is_clickable ? 'onclick="' . $onClick . '(this);"' : '' ?> -->
+            
             <?php
                 for ($i = 1; $i <= $total_rows; $i++) {
             ?>
@@ -178,7 +182,7 @@ if (!$sqli_prepare) {
 
                                 // If chair is temp reserved, show as such
                                 foreach ($selected_chair as $session_chair) {
-                                    if ($i == $session_chair['row'] && $x == $session_chair['num']) {
+                                    if ($i == $session_chair['row'] && $x == $session_chair['num'] && $movieName == $session_chair['name']) {
                                         $src = '../assets/chairs/temp_reserved_chair.png';
                                         $isSelected = true;
                                         $is_clickable = true;
@@ -194,7 +198,7 @@ if (!$sqli_prepare) {
                     <?= $is_clickable === true && $isSelected === false ? 'onclick="chooseChairPopUp(this);"' : '' ?>
                     <?= $isSelected === true ? 'onclick="remove_chair(this, \'' . $type . '\');"' : '' ?>
                     class="chair col mt-3 p-1 <?= $is_clickable ? 'pointer' : 'no-pointer' ?>" data-num="<?= $x ?>"
-                    data-row="<?= $i ?>" data-movieName="<?=  ?>" width="15" height="75">
+                    data-row="<?= $i ?>" data-name="<?= $movieName ?>" width="15" height="75">
                 <?php
                     }
                 ?>
@@ -225,7 +229,7 @@ if (!$sqli_prepare) {
                         $normalTicketCount = 0;
                         if(isset($_SESSION['temp_reserved_chair'])) {
                             foreach($_SESSION['temp_reserved_chair'] as $chair) {
-                                if ($chair['type'] === 'normal') {
+                                if ($chair['type'] === 'normal' && $chair['name'] === $movieName) {
                                     $normalTicketCount++;
                                 }
                             }
@@ -245,7 +249,7 @@ if (!$sqli_prepare) {
                         $childTicketCount = 0;
                         if(isset($_SESSION['temp_reserved_chair'])) {
                             foreach($_SESSION['temp_reserved_chair'] as $chair) {
-                                if ($chair['type'] === 'child') {
+                                if ($chair['type'] === 'child' && $chair['name'] === $movieName) {
                                     $childTicketCount++;
                                 }
                             }
@@ -265,7 +269,7 @@ if (!$sqli_prepare) {
                         $olderTicketCount = 0;
                         if(isset($_SESSION['temp_reserved_chair'])) {
                             foreach($_SESSION['temp_reserved_chair'] as $chair) {
-                                if ($chair['type'] === 'older') {
+                                if ($chair['type'] === 'older' && $chair['name'] === $movieName) {
                                     $olderTicketCount++;
                                 }
                             }
@@ -293,6 +297,80 @@ if (!$sqli_prepare) {
             </tbody>
         </table>
     </div>
+    <div class="container my-5" style="color: #6E4F7D;">
+        <div class="row">
+            <h4 class="p-4" style="font-size: 30px; color: #6E4F7D; ">STAP 3: CONTROLEER JE BESTELLING</h4>
+        </div>
+        <div class="container border border-3 p-0 d-flex flex-row">
+            <img src="<?= htmlspecialchars($data['data'][0]['image']) ?>" alt="" class="m-2" width="25%" height="auto">
+            <div class="container d-flex flex-column">
+                <h1 class="mt-3 w-100"><?= $data['data'][0]['title'] ?></h1>
+                <div class="d-flex flex-row">
+                    <?php foreach ($data['data'][0]['viewing_guides']['symbols'] as $symbol): ?>
+                                    <img src="<?= $symbol['image'] ?>" alt="<?= $symbol['name'] ?>" class="me-1" style="height: 30px;">
+                    <?php endforeach; ?>
+                </div>
+                <div class="w-100 h-100 mt-4">
+                    <div class="d-flex flex-row fs-5">
+                        <p class="fw-bold">Bioscoop:</p><p>&nbsp;&nbsp;Bilthoven (Zaal 1)</p>
+                    </div>
+                    <div class="d-flex flex-row fs-5">
+                        <p class="fw-bold fs-5">Wanneer:</p><p>&nbsp;&nbsp;<?= $data['data'][0]['first_play_time']; ?></p>
+                    </div>
+                    <div class="d-flex flex-row fs-5">
+                        <p class="fw-bold fs-5">Stoelen:</p><p id="huidige-stoelen">&nbsp;&nbsp;<?php foreach($_SESSION['temp_reserved_chair'] as $chairs){ if($chairs['name'] == $movieName){ echo 'Rij '.$chair['row'].', Stoel '.$chair['num'].' | '; }} ?></p>
+                    </div>
+                    <div class="d-flex flex-row fs-5">
+                        <p class="fw-bold fs-5">Tickets:</p><p id="total-tickets">&nbsp;&nbsp;<?= $normalTicketCount ?>x&nbsp;Normaal&nbsp;&nbsp;|&nbsp;&nbsp;<?= $childTicketCount ?>x&nbsp;Kinderen t/m 14&nbsp;&nbsp;|&nbsp;&nbsp;<?= $olderTicketCount ?>x&nbsp;65+</p>
+                    </div>
+                    <div class="d-flex flex-row fs-5 mt-5">
+                        <p class="fw-bold fs-5">Totaal:</p><p id="total-ticket-price">&nbsp;&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="" action="index.php" method="POST">
+
+        <div class="container my-5 w-100" style="color: #6E4F7D;">
+            <div class="row">
+                <h4 class="p-4" style="font-size: 30px; color: #6E4F7D; ">STAP 4: VUL JE GEGEVENS IN</h4>
+            </div>
+            <div class="container w-100 d-flex flex-column">
+                <div class="w-50" action="index.php">
+                    <div class="d-flex flex-row w-100">
+                        <input class="border border-3 w-50" type="text" name="email" id="fname" placeholder="Voornaam" required novalidate>
+                        <input class="border border-3 w-50 ms-2" type="text" name="email" id="lname" placeholder="Achternaam" required novalidate>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <input class="mt-2 w-100 border border-3" type="email" name="email" id="email" placeholder="E-mailadress*" required validate>
+                        <input class="mt-2 w-100 border border-3" type="email" name="emailCheck" id="emailCheck" placeholder="E-mailadress*" required validate>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="container my-5 w-100" style="color: #6E4F7D;">
+            <div class="row">
+                    <h4 class="p-4" style="font-size: 30px; color: #6E4F7D; ">STAP 5: KIES JE BETAALWIJZE</h4>
+            </div>
+            <div class="w-100 d-flex flex-row">
+                <input class="me-4" type="radio" id="bioscoopbon" name="paymethod" value="bioscoopbon" required>
+                <img class="me-5" src="../assets/icons/biosbon.png" alt="biosbon"  width="7.5%" height="10%">
+                <input class="me-4" type="radio" id="maestro" name="paymethod" value="maestro" required>
+                <img class="me-5" src="../assets/icons/Maestro_logo.png" alt="Maestro Kaart" width="7.5%" height="10%">
+                <input class="me-4" type="radio" id="iDeal" name="paymethod" value="iDeal" required>
+                <img src="../assets/icons/iDEAL-logo.png" alt="iDeal" width="7.5%" height="10%">
+            </div>
+            <div class="w-100 mt-5">
+                <input type="checkbox" id="voorwaarden" name="voorwaarden" required>
+                <label for="voorwaarden">Ja, ik ga akkoord met de algemene voorwaarden</label>
+            </div>
+        </div>
+    
 </div>
+<div class="container d-flex flex-column mt-5 mb-5 p-0">
+    <input class="btn btn-primary text-uppercase p-0 m-0" style="background-color: #6E4F7D; border:none; height: 10vh;" type="submit" id="submit" name="submit" value="Afrekenen">
+</div>
+</form>
 
 <?php include_once("footer.php"); ?>

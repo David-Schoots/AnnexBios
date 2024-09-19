@@ -113,6 +113,7 @@ function chooseChairPopUp(element) {
 function add_chair(element, typeTicket) {
     const chair_num = element.dataset.num;
     const chair_row = element.dataset.row;
+    const movieName = element.dataset.name;
 
     if (isBusy === false) {
         isBusy = true;
@@ -120,6 +121,7 @@ function add_chair(element, typeTicket) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
                     const response = JSON.parse(this.responseText);
 
                     if (response['error'] === true) {
@@ -134,15 +136,26 @@ function add_chair(element, typeTicket) {
                             const input = document.querySelector(`#${typeTicket}-ticket-input`);
                             input.value = response['amountOfType'];
                             tickets[typeTicket] = response['amountOfType'];
-                            const totalPrice = document.querySelector('#total-price-ticket')
+
+                            const totalPrice = document.querySelector('#total-price-ticket');
                             totalPrice.textContent = `€${response['amountTotalPrice']},00`;
+
+                            const huidigeStoelen = document.querySelector('#huidige-stoelen');
+                            huidigeStoelen.textContent += `Rij ${chair_row}, stoel ${chair_num} | `;
+
+                            const totalTicketsDisplay = document.querySelector('#total-tickets');
+                            totalTicketsDisplay.textContent = `\xa0\xa0 ${response['totalTicketDisplay']}`;
+
+                            const totalTickets = document.querySelector('#total-ticket-price');
+                            totalTickets.textContent = `\xa0\xa0 ${response['totalTickets']}\xa0 Ticket(s) \xa0€${response['amountTotalPrice']},00`;
+
                         }
                     }
                     isBusy = false;
                 }
             };
 
-            xhttp.open("GET", `../modules/Ajax/temp_insert_chair.php?chair_num=${chair_num}&chair_row=${chair_row}&type_ticket=${typeTicket}`, true);
+            xhttp.open("GET", `../modules/Ajax/temp_insert_chair.php?chair_num=${chair_num}&chair_row=${chair_row}&type_ticket=${typeTicket}&name=${movieName}`, true);
             xhttp.send();
         }
     }
@@ -152,7 +165,7 @@ function add_chair(element, typeTicket) {
 function remove_chair(element, typeTicket) {
     const chair_num = element.dataset.num;
     const chair_row = element.dataset.row;
-    const movie_name = element.dataset.movieName;
+    const movieName = element.dataset.name;
 
     if (isBusy === false) {
         isBusy = true;
@@ -160,7 +173,9 @@ function remove_chair(element, typeTicket) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                // console.log(this.responseText);
                 const response = JSON.parse(this.responseText);
+                // console.log(response['currentChairs']);
 
                 if (response['error'] === true) {
                     console.log('Error while removing the chair.');
@@ -173,18 +188,29 @@ function remove_chair(element, typeTicket) {
                     const input = document.querySelector(`#${typeTicket}-ticket-input`);
                     input.value = response['amountOfType'];
                     tickets[typeTicket] = response['amountOfType'];
+
                     const totalPrice = document.querySelector('#total-price-ticket')
                     totalPrice.textContent = `€${response['amountTotalPrice']},00`;
+
+                    const huidigeStoelen = document.querySelector('#huidige-stoelen');
+                    huidigeStoelen.textContent = `\xa0\xa0  ${response['currentChairs']}`;
+
+                    const totalTicketsDisplay = document.querySelector('#total-tickets');
+                    totalTicketsDisplay.textContent = `\xa0\xa0 ${response['totalTicketDisplay']}`;
+
+                    const totalTickets = document.querySelector('#total-ticket-price');
+                    totalTickets.textContent = `\xa0\xa0 ${response['totalTickets']}\xa0 Ticket(s) \xa0 €${response['amountTotalPrice']},00`;
+
                 }
                 isBusy = false;
             }
         };
 
-        xhttp.open("GET", `../modules/Ajax/deselect_temp_chair.php?chair_num=${chair_num}&chair_row=${chair_row}&type_ticket=${typeTicket}`, true);
+        xhttp.open("GET", `../modules/Ajax/deselect_temp_chair.php?chair_num=${chair_num}&chair_row=${chair_row}&type_ticket=${typeTicket}&name=${movieName}`, true);
         xhttp.send();
     }
 }
 
 // setInterval(() => {
     
-// }, 1000);
+// }, 60000);
