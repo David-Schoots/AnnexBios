@@ -1,12 +1,13 @@
 <?php
 include_once("header.php");
 include "../modules/core/db_connect.php"; // Ensure database connection is included
-
 include_once("../api/api-call.php"); // Ensure api call connection is included
 
 
 $id = htmlspecialchars($_GET['id']);
 $data = getApiMovie($id); // Get the data from the api that is linked to a specific movie
+
+$playingData = getApiMoviePlaying($id);
 
 // Initialize variables
 $editable_chairs = [];
@@ -14,6 +15,8 @@ $total_rows = 10;
 $chair_reserved = [];
 $delete_chair = [];
 $selected_chair = [];
+
+
 
 // Get selected chairs from session 
 if (isset($_SESSION['temp_reserved_chair'])) {
@@ -88,32 +91,16 @@ if (!$sqli_prepare) {
 <!-- Dropdown for Movie Selection, Datepicker, and Timepicker -->
 <div class="container col-12 text-uppercase d-flex align-items-center p-0 my-4">
     <div class="col-12 d-flex flex-column flex-sm-row gap-3">
+        <?php foreach ($data['data'] as $movie): ?>
         <p class="d-flex justify-content-center align-items-center p-2 mb-0 bg-white"><?= $movie['title'] ?></p>
+        <?php endforeach; ?>
 
-        <!-- Datepicker Dropdown -->
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" style="color: #6E4F7D; border-radius: 0;" type="button"
-                id="dropdownDateButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Datum
-            </button>
-            <ul class="dropdown-menu p-3" aria-labelledby="dropdownDateButton">
-                <li><input type="date" class="form-control" placeholder="Kies een datum"></li>
-            </ul>
-        </div>
+        <select class="form-select">
+            <?php foreach (array_column($playingData['data'], 'play_time') as $play_time): ?>
+                <option value="<?= htmlspecialchars($play_time) ?>"><?= htmlspecialchars($play_time) ?></option>
+            <?php endforeach; ?>
+        </select>
 
-        <!-- Time Dropdown -->
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" style="color: #6E4F7D; border-radius: 0;" type="button"
-                id="dropdownTimeButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Tijdstip
-            </button>
-            <ul class="dropdown-menu p-3" aria-labelledby="dropdownTimeButton">
-                <li>
-                    <!-- Use HTML5 time input -->
-                    <input type="time" class="form-control" placeholder="Kies een tijdstip">
-                </li>
-            </ul>
-        </div>
     </div>
 </div>
 
