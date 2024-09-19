@@ -2,18 +2,16 @@
 include_once("header.php");
 include_once("../api/api-call.php");
 $data = getApiMovies();
-$Detail = getApiMovie($id);
 
 ?>
 
 <!-- Movie Section -->
-<div class="container my-5 text-uppercase" style=" font-size: 45px;">
+<div class="container my-5 text-uppercase" style="font-size: 45px;">
     <div class="row">
         <div class="col-6 bg-white">
-            <h2 class="text-left" style="color: #6E4F7D;">film agenda</h2>
+            <h2 class="text-left" style="color: #6E4F7D;">Film Agenda</h2>
         </div>
     </div>
-
 </div>
 
 <!-- Main container -->
@@ -38,12 +36,6 @@ $Detail = getApiMovie($id);
         <!-- Radio buttons -->
         <div class="mb-3">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="filterOptions" id="radioFilms" checked>
-                <label class="form-check-label" for="radioFilms" style="color: #6E4F7D;">
-                    Films
-                </label>
-            </div>
-            <div class="form-check">
                 <input class="form-check-input" type="radio" name="filterOptions" id="radioWeek">
                 <label class="form-check-label" for="radioWeek" style="color: #6E4F7D;">
                     Deze Week
@@ -58,49 +50,42 @@ $Detail = getApiMovie($id);
         </div>
 
         <!-- Dropdown -->
-        <div class="dropdown">
-    <button class="btn btn-light dropdown-toggle text-uppercase w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6E4F7D;">
-        genres
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-        <?php foreach($data['data'] as $movie): ?>
-            <?php foreach($movie['genres'] as $genre): ?>
-                <li>
-                    <a class="dropdown-item" href="#">
-                        <input class="form-check-input me-2" type="radio" name="categoryRadio" id="category<?php echo htmlspecialchars($genre['name']); ?>">
-                        <label class="form-check-label" for="category<?php echo htmlspecialchars($genre['name']); ?>">
-                            <?php echo htmlspecialchars($genre['name']); ?>
-                        </label>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        <?php endforeach; ?>
-    </ul>
-</div>
-
+        <div class="dropdown mb-3">
+            <button class="btn btn-light dropdown-toggle text-uppercase w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6E4F7D;">
+                Genres
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                <?php foreach($data['data'] as $movie): ?>
+                    <?php foreach($movie['genres'] as $genre): ?>
+                        <li>
+                            <input class="form-check-input me-2" type="radio" name="categoryRadio" id="category<?php echo htmlspecialchars($genre['name']); ?>">
+                            <label class="form-check-label" for="category<?php echo htmlspecialchars($genre['name']); ?>">
+                                <?php echo htmlspecialchars($genre['name']); ?>
+                            </label>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
 </div>
 
 <!-- Movie Posters -->
-<!-- movie posters -->
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
-
         <?php
-        /* show only the first 12 movies on screen */
+        /* Show only the first 12 movies on screen */
         $data = array_slice($data['data'], 0, 12);
 
-        /* loop through each of the 12 movies */
+        /* Loop through each of the 12 movies */
         foreach ($data as $movie): ?>
             <div class="col">
                 <div class="card d-flex flex-column justify-content-between h-100" style="border: none;">
-                    <img src="<?php echo htmlspecialchars($movie['image']); ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;"
-                        alt="<?php echo htmlspecialchars($movie['title']); ?>" />
+                    <img src="<?php echo htmlspecialchars($movie['image']); ?>" class="card-img-top img-fluid" style="min-height: 350px; object-fit: cover; width: 100%;" alt="<?php echo htmlspecialchars($movie['title']); ?>" />
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-uppercase" style="min-height: 60px;"><?php echo htmlspecialchars($movie['title']); ?></h5>
                         <span style="color: #6E4F7D; font-size: 1.5rem;"><?php echo htmlspecialchars($movie['rating']); ?> Stars</span>
                         <p class="card-text">Release: <?php echo htmlspecialchars($movie['release_date']); ?></p>
-
                         <p class="card-text">
                             <?php
                             $description = htmlspecialchars($movie['description']);
@@ -112,15 +97,13 @@ $Detail = getApiMovie($id);
                             }
                             ?>
                         </p>
-
                         <div class="mt-auto">
-                            <a href="detail.php?id=<?= htmlspecialchars($movie['api_id']); ?>" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none">Meer Info & Tickets</a>
+                            <a href="detail.php?id=<?= htmlspecialchars($movie['api_id']); ?>" class="btn btn-primary text-uppercase" style="background-color: #6E4F7D; border:none;">Meer Info & Tickets</a>
                         </div>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
-
     </div>
 </div>
 

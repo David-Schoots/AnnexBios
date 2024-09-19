@@ -68,12 +68,6 @@ $data = getApiMovies();
         <!-- Radio buttons -->
         <div class="mb-3">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="filterOptions" id="radioFilms" checked>
-                <label class="form-check-label" for="radioFilms" style="color: #6E4F7D;">
-                    Films
-                </label>
-            </div>
-            <div class="form-check">
                 <input class="form-check-input" type="radio" name="filterOptions" id="radioWeek">
                 <label class="form-check-label" for="radioWeek" style="color: #6E4F7D;">
                     Deze Week
@@ -88,33 +82,35 @@ $data = getApiMovies();
         </div>
 
         <!-- Dropdown -->
-        <div class="dropdown">
+        <div class="dropdown mb-3">
             <button class="btn btn-light dropdown-toggle text-uppercase w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6E4F7D;">
-                Categorie
+                Genres
             </button>
             <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-                <li><a class="dropdown-item" href="#">
-                    <input class="form-check-input me-2" type="radio" name="categoryRadio" id="categoryAction">
-                    <label class="form-check-label" for="categoryAction">
-                        Action
-                    </label>
-                </a></li>
-                <li><a class="dropdown-item" href="#">
-                    <input class="form-check-input me-2" type="radio" name="categoryRadio" id="categoryAnother">
-                    <label class="form-check-label" for="categoryAnother">
-                        Another Action
-                    </label>
-                </a></li>
-                <li><a class="dropdown-item" href="#">
-                    <input class="form-check-input me-2" type="radio" name="categoryRadio" id="categoryElse">
-                    <label class="form-check-label" for="categoryElse">
-                        Something Else
-                    </label>
-                </a></li>
+            <?php
+            $genres = [];
+            foreach($data['data'] as $movie) {
+                foreach($movie['genres'] as $genre) {
+                    if(!in_array($genre, $genres)) {
+                        $genres[] = $genre;
+                    }
+                }
+            }
+            ?>
+
+                <?php foreach($genres as $genre): ?>
+                        <li>
+                            <input class="form-check-input me-2" type="radio" name="categoryRadio" id="category<?php echo htmlspecialchars($genre['name']); ?>">
+                            <label class="form-check-label" for="category<?php echo htmlspecialchars($genre['name']); ?>">
+                                <?php echo htmlspecialchars($genre['name']); ?>
+                            </label>
+                        </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
 </div>
+
 
 
 
