@@ -2,7 +2,7 @@
 include_once("header.php");
 include "../modules/core/db_connect.php"; // Ensure database connection is included
 include_once("../api/api-call.php"); // Ensure api call connection is included
-
+// session_destroy();
 
 $id = htmlspecialchars($_GET['id']);
 $data = getApiMovie($id); // Get the data from the api that is linked to a specific movie

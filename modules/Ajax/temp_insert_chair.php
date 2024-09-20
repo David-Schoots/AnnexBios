@@ -36,13 +36,13 @@
             if ($chair['type'] == $type_ticket) {
                 $amountOfType++;
             }
-            if($chair['type'] == "normal") {
+            if($chair['type'] == "normal" && $chair['name'] == $name) {
                 $totalPrijs += 9;
                 $totalNormalTickets++;
-            } else if($chair['type'] == "child") {
+            } else if($chair['type'] == "child" && $chair['name'] == $name) {
                 $totalPrijs += 5;
                 $totalChildTickets++;
-            } else if($chair['type'] == "older") {
+            } else if($chair['type'] == "older" && $chair['name'] == $name) {
                 $totalPrijs += 7;
                 $totalOlderTickets++;
             }

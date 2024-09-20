@@ -85,6 +85,7 @@ include_once("header.php");
     <?php endif; ?>
 <?php endforeach; ?>
 
+</div>
 
 <?php
 include_once("footer.php");
