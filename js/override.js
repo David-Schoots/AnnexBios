@@ -13,6 +13,10 @@ toggler.addEventListener("click", () => {
   expander.classList.toggle("collapse");
 });
 
+function closeBestellingBedankt() {
+  window.location.href = '../page/index.php';
+}
+
 // /* code for the ticket price */
 
 /* document.addEventListener("DOMContentLoaded", function () {

@@ -24,8 +24,7 @@ $chair_reserved = [];
 $delete_chair = [];
 $selected_chair = [];
 
-
-
+// session_destroy();
 // Get selected chairs from session 
 if (isset($_SESSION['temp_reserved_chair'])) {
     foreach ($_SESSION['temp_reserved_chair'] as $key => $value) {
@@ -73,6 +72,25 @@ if (!$sqli_prepare) {
                         "num" => $chair_number
                     ];
                 }
+            }
+        }
+    }
+
+$query = "SELECT id, chair_number, chair_row FROM reserved_chairs WHERE movie_name = '$movieName'";
+$sqli_prepare = $con->prepare($query);
+$sqli_prepare->bind_result($id, $chair_number, $chair_row);
+
+if (!$sqli_prepare) {
+    echo mysqli_error($con);
+} else {
+    if ($sqli_prepare->execute()) {
+        while ($sqli_prepare->fetch()) {
+            
+                $chair_reserved[] = [
+                    "row" => $chair_row,
+                    "num" => $chair_number,
+                    "id" => $id
+                ];
             }
         }
     }
@@ -326,7 +344,7 @@ if (!$sqli_prepare) {
             </div>
         </div>
     </div>
-    <form class="" action="index.php" method="POST">
+    <form action="thanks.php" method="POST">
 
         <div class="container my-5 w-100" style="color: #6E4F7D;">
             <div class="row">
@@ -360,6 +378,7 @@ if (!$sqli_prepare) {
             <div class="w-100 mt-5">
                 <input type="checkbox" id="voorwaarden" name="voorwaarden" required>
                 <label for="voorwaarden">Ja, ik ga akkoord met de algemene voorwaarden</label>
+                <input type="hidden" id="name" name="name" value="<?= $movieName ?>" >
             </div>
         </div>
     

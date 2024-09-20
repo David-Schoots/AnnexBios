@@ -7,7 +7,6 @@
     $type_ticket = $_GET['type_ticket'];
     $name = $_GET['name'];
 
-    // Prevent duplicate reservations with a unique constraint in the database
     $sqli_prepare = $con->prepare("INSERT INTO `temporary_reserved_chairs` (chair_number, chair_row, type, movie_name) VALUES (?, ?, ?, ?);");
     $sqli_prepare->bind_param('iiss', $chair_num, $chair_row, $type_ticket, $name);
 
@@ -22,6 +21,8 @@
             'type' => $type_ticket,
             'name' => $name
         ];
+
+    
 
        
         $amountOfType = 0;

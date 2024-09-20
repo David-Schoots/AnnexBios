@@ -126,6 +126,7 @@ function add_chair(element, typeTicket) {
 
                     if (response['error'] === true) {
                         console.log('Place already reserved.');
+                        element.src = '../assets/chairs/reserved_chair.png';
                     } else {
                         element.src = response['reserved'] ? '../assets/chairs/temp_reserved_chair.png' : '../assets/chairs/non_reserved_chair.png';
                         element.onclick = function () {
