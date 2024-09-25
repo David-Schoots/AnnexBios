@@ -7,8 +7,8 @@
     ouderen: 7, // Price for 65 +
   };
 
-  function updateTicketCount() {
-    var totalTickets = 0;
+//   function updateTicketCount() {
+//     var totalTickets = 0;
 
     document.querySelectorAll(".dropdown").forEach(function (dropdown) {
       totalTickets += 1;
@@ -33,23 +33,23 @@
       }
     });
 
-    // document.getElementById("ticketCount").textContent = totalTickets;
-    // document.getElementById(
-    //   "totalAmount"
-    // ).textContent = `€${totalAmount.toFixed(2)}`;
-  }
+//     // document.getElementById("ticketCount").textContent = totalTickets;
+//     // document.getElementById(
+//     //   "totalAmount"
+//     // ).textContent = `€${totalAmount.toFixed(2)}`;
+//   }
 
-  document.querySelectorAll(".dropdown-item").forEach(function (item) {
-    item.addEventListener("click", function (event) {
-      event.preventDefault();
-      const selectedValue = event.target.getAttribute("data-value");
-      const dropdownButton = event.target
-        .closest(".dropdown")
-        .querySelector(".btn");
-      dropdownButton.textContent = selectedValue;
-      updateTicketCount();
-    });
-  });
+//   document.querySelectorAll(".dropdown-item").forEach(function (item) {
+//     item.addEventListener("click", function (event) {
+//       event.preventDefault();
+//       const selectedValue = event.target.getAttribute("data-value");
+//       const dropdownButton = event.target
+//         .closest(".dropdown")
+//         .querySelector(".btn");
+//       dropdownButton.textContent = selectedValue;
+//       updateTicketCount();
+//     });
+//   });
 
   updateTicketCount(); // Initialize ticket count on page load
 });

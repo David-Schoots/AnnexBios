@@ -13,7 +13,11 @@ toggler.addEventListener("click", () => {
   expander.classList.toggle("collapse");
 });
 
-/* code for the ticket price */
+function closeBestellingBedankt() {
+  window.location.href = '../page/index.php';
+}
+
+// /* code for the ticket price */
 
 /* document.addEventListener("DOMContentLoaded", function () {
   const ticketPrices = {
@@ -54,17 +58,17 @@ toggler.addEventListener("click", () => {
 // ).textContent = `€${totalAmount.toFixed(2)}`;
 /* }
 
-  document.querySelectorAll(".dropdown-item").forEach(function (item) {
-    item.addEventListener("click", function (event) {
-      event.preventDefault();
-      const selectedValue = event.target.getAttribute("data-value");
-      const dropdownButton = event.target
-        .closest(".dropdown")
-        .querySelector(".btn");
-      dropdownButton.textContent = selectedValue;
-      updateTicketCount();
-    });
-  });
+//   document.querySelectorAll(".dropdown-item").forEach(function (item) {
+//     item.addEventListener("click", function (event) {
+//       event.preventDefault();
+//       const selectedValue = event.target.getAttribute("data-value");
+//       const dropdownButton = event.target
+//         .closest(".dropdown")
+//         .querySelector(".btn");
+//       dropdownButton.textContent = selectedValue;
+//       updateTicketCount();
+//     });
+//   });
 
   updateTicketCount(); // Initialize ticket count on page load
 }); */

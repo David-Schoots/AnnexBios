@@ -55,15 +55,24 @@ $data = getApiMovies();
                 Genres
             </button>
             <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-                <?php foreach($data['data'] as $movie): ?>
-                    <?php foreach($movie['genres'] as $genre): ?>
+            <?php
+            $genres = [];
+            foreach($data['data'] as $movie) {
+                foreach($movie['genres'] as $genre) {
+                    if(!in_array($genre, $genres)) {
+                        $genres[] = $genre;
+                    }
+                }
+            }
+            ?>
+
+                <?php foreach($genres as $genre): ?>
                         <li>
                             <input class="form-check-input me-2" type="radio" name="categoryRadio" id="category<?php echo htmlspecialchars($genre['name']); ?>">
                             <label class="form-check-label" for="category<?php echo htmlspecialchars($genre['name']); ?>">
                                 <?php echo htmlspecialchars($genre['name']); ?>
                             </label>
                         </li>
-                    <?php endforeach; ?>
                 <?php endforeach; ?>
             </ul>
         </div>
